@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'SDWebImageSVGCoder_Example' do
   pod 'SDWebImageSVGCoder', :path => '../'
+  pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x'
 
   target 'SDWebImageSVGCoder_Tests' do
     inherit! :search_paths

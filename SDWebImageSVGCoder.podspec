@@ -22,21 +22,15 @@ TODO: Add long description of the pod here.
                        DESC
 
   s.homepage         = 'https://github.com/lizhuoli1126@126.com/SDWebImageSVGCoder'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'lizhuoli1126@126.com' => 'lizhuoli1126@126.com' }
   s.source           = { :git => 'https://github.com/lizhuoli1126@126.com/SDWebImageSVGCoder.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'SDWebImageSVGCoder/Classes/**/*'
+  s.source_files = 'SDWebImageSVGCoder/Classes/**/*', 'SDWebImageSVGCoder/Module/SDWebImageSVGCoder.h'
+  s.module_map = 'SDWebImageSVGCoder/Module/SDWebImageSVGCoder.modulemap'
   
-  # s.resource_bundles = {
-  #   'SDWebImageSVGCoder' => ['SDWebImageSVGCoder/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'SDWebImage/Core', '>= 5.0.0-beta2'
+  s.dependency 'SVGKit', '>= 2.x'
 end

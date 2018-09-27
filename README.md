@@ -20,10 +20,38 @@ it, simply add the following line to your Podfile:
 pod 'SDWebImageSVGCoder'
 ```
 
+## Usage
+
+To use SVG coder, you should firstly add the `SDImageSVGCoder` to the coders manager. Then you can call the View Category method to start load SVG images.
+
++ Objective-C
+
+```objective-c
+SDImageSVGCoder *SVGCoder = [SDImageSVGCoder sharedCoder];
+[[SDImageCodersManager sharedManager] addCoder:SVGCoder];
+UIImageView *imageView;
+[imageView sd_setImageWithURL:url];
+```
+
++ Swift
+
+```swift
+let SVGCoder = SDImageSVGCoder.shared
+SDImageCodersManager.shared.addCoder(SVGCoder)
+let imageView: UIImageView
+imageView.sd_setImage(with: url)
+```
+
+## Screenshot
+
+<img src="https://raw.githubusercontent.com/dreampiggy/SDWebImageSVGCoder/master/Example/Screenshot/SVGDemo.png" width="300" />
+
 ## Author
 
-lizhuoli1126@126.com, lizhuoli1126@126.com
+DreamPiggy
 
 ## License
 
 SDWebImageSVGCoder is available under the MIT license. See the LICENSE file for more info.
+
+
