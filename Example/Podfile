@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SDWebImageSVGCoder_Example' do
+  pod 'SDWebImageSVGCoder', :path => '../'
+
+  target 'SDWebImageSVGCoder_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
