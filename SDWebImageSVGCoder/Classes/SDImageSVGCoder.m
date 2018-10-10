@@ -6,9 +6,9 @@
 //
 
 #import "SDImageSVGCoder.h"
+#import "SDWebImageSVGCoderDefine.h"
 #import <SVGKit/SVGKit.h>
 
-#define kXMLTagStart @"<?xml"
 #define kSVGTagEnd @"</svg>"
 
 @implementation SDImageSVGCoder
@@ -36,6 +36,15 @@
     SVGKImage *svgImage = [[SVGKImage alloc] initWithData:data];
     if (!svgImage) {
         return nil;
+    }
+    
+    // Check specified image size
+    SDWebImageContext *context = options[SDImageCoderWebImageContext];
+    if (context[SDWebImageContextVectorImageSize]) {
+        CGSize imageSize = [context[SDWebImageContextVectorImageSize] CGSizeValue];
+        if (!CGSizeEqualToSize(imageSize, CGSizeZero)) {
+            svgImage.size = imageSize;
+        }
     }
     
     UIImage *image = svgImage.UIImage;
@@ -68,13 +77,8 @@
     if (data.length <= 100) {
         return NO;
     }
-    // Check start with XML tag
-    NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 100)] encoding:NSASCIIStringEncoding];
-    if (![testString containsString:kXMLTagStart]) {
-        return NO;
-    }
     // Check end with SVG tag
-    testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(data.length - 100, 100)] encoding:NSASCIIStringEncoding];
+    NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(data.length - 100, 100)] encoding:NSASCIIStringEncoding];
     if (![testString containsString:kSVGTagEnd]) {
         return NO;
     }
