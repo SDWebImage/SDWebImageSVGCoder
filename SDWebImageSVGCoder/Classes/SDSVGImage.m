@@ -6,6 +6,7 @@
 //
 
 #import "SDSVGImage.h"
+#import "SDWebImageSVGCoderDefine.h"
 
 @interface SDSVGImage ()
 
@@ -55,11 +56,19 @@
     if (!svgImage) {
         return nil;
     }
+    // Check specified image size
+    SDWebImageContext *context = options[SDImageCoderWebImageContext];
+    if (context[SDWebImageContextVectorImageSize]) {
+        CGSize imageSize = [context[SDWebImageContextVectorImageSize] CGSizeValue];
+        if (!CGSizeEqualToSize(imageSize, CGSizeZero)) {
+            svgImage.size = imageSize;
+        }
+    }
     return [self initWithSVGImage:svgImage];
 }
 
 - (instancetype)initWithAnimatedCoder:(id<SDAnimatedImageCoder>)animatedCoder scale:(CGFloat)scale {
-    // Does not support progressive load for GIF images at all
+    // Does not support progressive load for SVG images at all
     return nil;
 }
 

@@ -37,10 +37,10 @@ void SDAdjustSVGContentMode(SVGKImage * svgImage, UIViewContentMode contentMode,
         case UIViewContentModeScaleAspectFit: {
             CGFloat scale = smallestScaleUp < 1.0f ? smallestScaleUp : biggestScaleDown;
             CGSize targetSize = CGSizeApplyAffineTransform(imageSize, CGAffineTransformMakeScale(scale, scale));
-            CGFloat x = ceil(viewSize.width - targetSize.width) / 2;
-            CGFloat y = ceil(viewSize.height - targetSize.height) / 2;
+            xPosition = (viewSize.width - targetSize.width) / 2;
+            yPosition = (viewSize.height - targetSize.height) / 2;
             svgImage.size = targetSize;
-            svgImage.DOMTree.viewport = SVGRectMake(x, y, targetSize.width, targetSize.height);
+            svgImage.DOMTree.viewport = SVGRectMake(xPosition, yPosition, targetSize.width, targetSize.height);
             // masksToBounds to clip the sublayer which beyond the viewport to match `UIImageView` behavior
             svgImage.CALayerTree.masksToBounds = YES;
         }
@@ -55,71 +55,80 @@ void SDAdjustSVGContentMode(SVGKImage * svgImage, UIViewContentMode contentMode,
                 scale = hScale;
             }
             CGSize targetSize = CGSizeApplyAffineTransform(imageSize, CGAffineTransformMakeScale(scale, scale));
-            svgImage.size = targetSize;
             if (imageAspect < viewAspect) {
                 // need center y as well
-                xPosition = targetSize.width / 2;
-                yPosition = viewSize.height / 2;
+                xPosition = 0;
+                yPosition = (targetSize.height - viewSize.height) / 2;
             } else {
                 // need center x as well
-                xPosition = viewSize.width / 2;
-                yPosition = targetSize.height / 2;
+                xPosition = (targetSize.width - viewSize.width) / 2;
+                yPosition = 0;
             }
-            svgImage.CALayerTree.position = CGPointMake(xPosition, yPosition);
+            svgImage.DOMTree.viewBox = SVGRectMake(xPosition, yPosition, imageSize.width, imageSize.height);
+            svgImage.size = targetSize;
         }
             break;
         case UIViewContentModeTop: {
-            xPosition = viewSize.width / 2;
-            yPosition = imageSize.height / 2;
-            svgImage.CALayerTree.position = CGPointMake(xPosition, yPosition);
+            xPosition = (imageSize.width - viewSize.width) / 2;
+            yPosition = 0;
+            svgImage.DOMTree.viewBox = SVGRectMake(xPosition, yPosition, imageSize.width, imageSize.height);
+            svgImage.size = imageSize;
         }
             break;
         case UIViewContentModeTopLeft: {
-            xPosition = imageSize.width / 2;
-            yPosition = imageSize.height / 2;
-            svgImage.CALayerTree.position = CGPointMake(xPosition, yPosition);
+            xPosition = 0;
+            yPosition = 0;
+            svgImage.DOMTree.viewBox = SVGRectMake(xPosition, yPosition, imageSize.width, imageSize.height);
+            svgImage.size = imageSize;
         }
             break;
         case UIViewContentModeTopRight: {
-            xPosition = -imageSize.width / 2 + viewSize.width;
-            yPosition = imageSize.height / 2;
-            svgImage.CALayerTree.position = CGPointMake(xPosition, yPosition);
+            xPosition = imageSize.width - viewSize.width;
+            yPosition = 0;
+            svgImage.DOMTree.viewBox = SVGRectMake(xPosition, yPosition, imageSize.width, imageSize.height);
+            svgImage.size = imageSize;
         }
             break;
         case UIViewContentModeCenter: {
-            xPosition = viewSize.width / 2;
-            yPosition = viewSize.height / 2;
-            svgImage.CALayerTree.position = CGPointMake(xPosition, yPosition);
+            xPosition = (imageSize.width - viewSize.width) / 2;
+            yPosition = (imageSize.height - viewSize.height) / 2;
+            svgImage.DOMTree.viewBox = SVGRectMake(xPosition, yPosition, imageSize.width, imageSize.height);
+            svgImage.size = imageSize;
         }
             break;
         case UIViewContentModeLeft: {
-            xPosition = imageSize.width / 2;
-            yPosition = viewSize.height / 2;
-            svgImage.CALayerTree.position = CGPointMake(xPosition, yPosition);
+            xPosition = 0;
+            yPosition = (imageSize.height - viewSize.height) / 2;
+            svgImage.DOMTree.viewBox = SVGRectMake(xPosition, yPosition, imageSize.width, imageSize.height);
+            svgImage.size = imageSize;
         }
             break;
         case UIViewContentModeRight: {
-            xPosition = -imageSize.width / 2 + viewSize.width;
-            yPosition = viewSize.height / 2;
-            svgImage.CALayerTree.position = CGPointMake(xPosition, yPosition);
+            xPosition = imageSize.width - viewSize.width;
+            yPosition = (imageSize.height - viewSize.height) / 2;
+            svgImage.DOMTree.viewBox = SVGRectMake(xPosition, yPosition, imageSize.width, imageSize.height);
+            svgImage.size = imageSize;
         }
             break;
         case UIViewContentModeBottom: {
-            xPosition = viewSize.width / 2;
-            yPosition = -imageSize.height / 2 + viewSize.height;
-            svgImage.CALayerTree.position = CGPointMake(xPosition, yPosition);
+            xPosition = (imageSize.width - viewSize.width) / 2;
+            yPosition = imageSize.height - viewSize.height;
+            svgImage.DOMTree.viewBox = SVGRectMake(xPosition, yPosition, imageSize.width, imageSize.height);
+            svgImage.size = imageSize;
         }
             break;
         case UIViewContentModeBottomLeft: {
-            xPosition = imageSize.width / 2;
-            yPosition = -imageSize.height / 2 + viewSize.height;
-            svgImage.CALayerTree.position = CGPointMake(xPosition, yPosition);
+            xPosition = 0;
+            yPosition = imageSize.height - viewSize.height;
+            svgImage.DOMTree.viewBox = SVGRectMake(xPosition, yPosition, imageSize.width, imageSize.height);
+            svgImage.size = imageSize;
         }
             break;
         case UIViewContentModeBottomRight: {
-            xPosition = -imageSize.width / 2 + viewSize.width;
-            yPosition = -imageSize.height / 2 + viewSize.height;
-            svgImage.CALayerTree.position = CGPointMake(xPosition, yPosition);
+            xPosition = imageSize.width - viewSize.width;
+            yPosition = imageSize.height - viewSize.height;
+            svgImage.DOMTree.viewBox = SVGRectMake(xPosition, yPosition, imageSize.width, imageSize.height);
+            svgImage.size = imageSize;
         }
             break;
         case UIViewContentModeRedraw: {

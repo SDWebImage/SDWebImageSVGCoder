@@ -10,7 +10,7 @@
 @class SVGKImage;
 
 /**
- Adjust `SVGKImage`'s size && internal layerTree position to match the specify `contentMode` of view size.
+ Adjust `SVGKImage`'s viewPort && viewBox to match the specify `contentMode` of view size.
  @note Though this util method can be used outside this framework. For simple SVG image loading, it's recommaned to use `sd_adjustContentMode` property on `SVGKImageView+WebCache`.
 
  @param svgImage `SVGKImage` instance, should not be nil.
