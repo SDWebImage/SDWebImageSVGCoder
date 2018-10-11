@@ -2,7 +2,7 @@
 //  SVGKImageView+WebCache.h
 //  SDWebImageSVGCoder
 //
-//  Created by lizhuoli on 2018/10/10.
+//  Created by DreamPiggy on 2018/10/10.
 //
 
 #import <SVGKit/SVGKit.h>

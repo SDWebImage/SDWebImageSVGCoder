@@ -2,7 +2,7 @@
 //  SDImageSVGCoder.m
 //  SDWebImageSVGCoder
 //
-//  Created by lizhuoli on 2018/9/27.
+//  Created by DreamPiggy on 2018/9/27.
 //
 
 #import "SDImageSVGCoder.h"
