@@ -4,6 +4,8 @@
 [![Version](https://img.shields.io/cocoapods/v/SDWebImageSVGCoder.svg?style=flat)](https://cocoapods.org/pods/SDWebImageSVGCoder)
 [![License](https://img.shields.io/cocoapods/l/SDWebImageSVGCoder.svg?style=flat)](https://cocoapods.org/pods/SDWebImageSVGCoder)
 [![Platform](https://img.shields.io/cocoapods/p/SDWebImageSVGCoder.svg?style=flat)](https://cocoapods.org/pods/SDWebImageSVGCoder)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/dreampiggy/SDWebImageSVGCoder)
+
 
 ## What's for
 SDWebImageSVGCoder is a SVG coder plugin for [SDWebImage](https://github.com/rs/SDWebImage/) framework, which provide the image loading support for [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) using [SVGKit](https://github.com/SVGKit/SVGKit) SVG engine.
@@ -17,9 +19,11 @@ You can modify the code or use some other SVG files to check the compatibility.
 ## Requirements
 
 + iOS 8
-+ watchOS 9
++ tvOS 9
 
 ## Installation
+
+#### CocoaPods
 
 SDWebImageSVGCoder is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -30,6 +34,17 @@ pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x'
 ```
 
 **Note:** Because the dependency third party library [SVGKit](https://github.com/SVGKit/SVGKit#versions) does not release the 2.x version, and the current latest release version is not compatible for Xcode 9/10. So you should specify `2.x` branch dependency or using commit-id to import the dependency through CocoaPods.
+
+#### Carthage
+
+SDWebImageSVGCoder is available through [Carthage](https://github.com/Carthage/Carthage).
+
+Note that because the dependency SDWebImage currently is in beta. You should use `Carthage v0.30.1` or above to support beta [sem-version](https://semver.org/).
+
+```
+github "SDWebImage/SDWebImageSVGCoder"
+github "SVGKit/SVGKit" "2.x"
+```
 
 ## Usage
 
