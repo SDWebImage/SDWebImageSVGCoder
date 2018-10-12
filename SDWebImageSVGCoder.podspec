@@ -27,6 +27,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/lizhuoli1126@126.com/SDWebImageSVGCoder.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
+  s.tvos.deployment_target = '9.0'
 
   s.source_files = 'SDWebImageSVGCoder/Classes/**/*', 'SDWebImageSVGCoder/Module/SDWebImageSVGCoder.h'
   s.module_map = 'SDWebImageSVGCoder/Module/SDWebImageSVGCoder.modulemap'

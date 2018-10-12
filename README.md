@@ -17,6 +17,7 @@ You can modify the code or use some other SVG files to check the compatibility.
 ## Requirements
 
 + iOS 8
++ watchOS 9
 
 ## Installation
 
