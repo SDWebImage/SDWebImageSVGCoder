@@ -1,10 +1,10 @@
 # SDWebImageSVGCoder
 
-[![CI Status](https://img.shields.io/travis/lizhuoli1126@126.com/SDWebImageSVGCoder.svg?style=flat)](https://travis-ci.org/lizhuoli1126@126.com/SDWebImageSVGCoder)
+[![CI Status](https://img.shields.io/travis/SDWebImage/SDWebImageSVGCoder.svg?style=flat)](https://travis-ci.org/SDWebImage/SDWebImageSVGCoder)
 [![Version](https://img.shields.io/cocoapods/v/SDWebImageSVGCoder.svg?style=flat)](https://cocoapods.org/pods/SDWebImageSVGCoder)
 [![License](https://img.shields.io/cocoapods/l/SDWebImageSVGCoder.svg?style=flat)](https://cocoapods.org/pods/SDWebImageSVGCoder)
 [![Platform](https://img.shields.io/cocoapods/p/SDWebImageSVGCoder.svg?style=flat)](https://cocoapods.org/pods/SDWebImageSVGCoder)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/dreampiggy/SDWebImageSVGCoder)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/SDWebImage/SDWebImageSVGCoder)
 
 
 ## What's for
@@ -107,7 +107,7 @@ imageView.sd_setImage(with: url)
 
 ## Screenshot
 
-<img src="https://raw.githubusercontent.com/dreampiggy/SDWebImageSVGCoder/master/Example/Screenshot/SVGDemo.png" width="300" />
+<img src="https://raw.githubusercontent.com/SDWebImage/SDWebImageSVGCoder/master/Example/Screenshot/SVGDemo.png" width="300" />
 
 ## Author
 
