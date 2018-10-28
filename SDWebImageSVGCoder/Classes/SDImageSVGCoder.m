@@ -38,17 +38,27 @@
         return nil;
     }
     
-    // Check specified image size
+    CGSize imageSize = CGSizeZero;
+    BOOL preserveAspectRatio = YES;
+    // Parse args
     SDWebImageContext *context = options[SDImageCoderWebImageContext];
     if (context[SDWebImageContextSVGImageSize]) {
         NSValue *sizeValue = context[SDWebImageContextSVGImageSize];
 #if SD_UIKIT
-        CGSize imageSize = sizeValue.CGSizeValue;
+        imageSize = sizeValue.CGSizeValue;
 #else
-        CGSize imageSize = sizeValue.sizeValue;
+        imageSize = sizeValue.sizeValue;
 #endif
-        if (!CGSizeEqualToSize(imageSize, CGSizeZero)) {
-            svgImage.size = imageSize;
+    }
+    if (context[SDWebImageContextSVGImagePreserveAspectRatio]) {
+        preserveAspectRatio = [context[SDWebImageContextSVGImagePreserveAspectRatio] boolValue];
+    }
+    
+    if (!CGSizeEqualToSize(imageSize, CGSizeZero)) {
+        if (preserveAspectRatio) {
+            SDAdjustSVGContentMode(svgImage, UIViewContentModeScaleAspectFit, imageSize);
+        } else {
+            SDAdjustSVGContentMode(svgImage, UIViewContentModeScaleToFill, imageSize);
         }
     }
     
