@@ -40,8 +40,8 @@
     
     // Check specified image size
     SDWebImageContext *context = options[SDImageCoderWebImageContext];
-    if (context[SDWebImageContextVectorImageSize]) {
-        NSValue *sizeValue = context[SDWebImageContextVectorImageSize];
+    if (context[SDWebImageContextSVGImageSize]) {
+        NSValue *sizeValue = context[SDWebImageContextSVGImageSize];
 #if SD_UIKIT
         CGSize imageSize = sizeValue.CGSizeValue;
 #else

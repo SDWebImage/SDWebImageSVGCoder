@@ -53,7 +53,7 @@ github "SVGKit/SVGKit" "2.x"
 
 To use SVG coder, you should firstly add the `SDImageSVGCoder` to the coders manager. Then you can call the View Category method to start load SVG images.
 
-Because SVG is a [vector image](https://en.wikipedia.org/wiki/Vector_graphics) format, which means it does not have a fixed bitmap size. However, `UIImage` or `CGImage` are all [bitmap image](https://en.wikipedia.org/wiki/Raster_graphics). For `UIImageView`, we will only parse SVG with a fixed image size (from the SVG viewPort information). But we also support you to specify a desired size during image loading using `vectorImageSize` context option.
+Because SVG is a [vector image](https://en.wikipedia.org/wiki/Vector_graphics) format, which means it does not have a fixed bitmap size. However, `UIImage` or `CGImage` are all [bitmap image](https://en.wikipedia.org/wiki/Raster_graphics). For `UIImageView`, we will only parse SVG with a fixed image size (from the SVG viewPort information). But we also support you to specify a desired size during image loading using `SVGImageSize` context option.
 
 + Objective-C
 
@@ -62,8 +62,8 @@ SDImageSVGCoder *SVGCoder = [SDImageSVGCoder sharedCoder];
 [[SDImageCodersManager sharedManager] addCoder:SVGCoder];
 UIImageView *imageView;
 // this arg is optional, if don't provide, use the viewport size instead
-CGSize vectorImageSize = CGSizeMake(100, 100);
-[imageView sd_setImageWithURL:url placeholderImage:nil options:0 context:@{SDWebImageContextVectorImageSize : @(vectorImageSize)];
+CGSize SVGImageSize = CGSizeMake(100, 100);
+[imageView sd_setImageWithURL:url placeholderImage:nil options:0 context:@{SDWebImageContextSVGImageSize : @(SVGImageSize)];
 ```
 
 + Swift
@@ -74,8 +74,8 @@ SDImageCodersManager.shared.addCoder(SVGCoder)
 let imageView: UIImageView
 imageView.sd_setImage(with: url)
 // this arg is optional, if don't provide, use the viewport size instead
-let vectorImageSize = CGSize(width: 100, height: 100)
-imageView.sd_setImage(with: url, placeholderImage: nil, options: [], context: [.vectorImageSize : vectorImageSize])
+let SVGImageSize = CGSize(width: 100, height: 100)
+imageView.sd_setImage(with: url, placeholderImage: nil, options: [], context: [.svgImageSize : SVGImageSize])
 ```
 
 ### Use SVGKImageView (render SVG as vector image)

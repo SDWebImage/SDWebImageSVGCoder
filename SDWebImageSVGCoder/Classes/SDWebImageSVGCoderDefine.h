@@ -22,6 +22,6 @@ FOUNDATION_EXPORT void SDAdjustSVGContentMode(SVGKImage * __nonnull svgImage, UI
 #endif
 
 /**
- A CGSize raw value which specify the desired vector image size during image loading. Because vector image like SVG format, may not contains a fixed size, or you want to get a larger size bitmap representation UIImage. (NSValue)
+ A CGSize raw value which specify the desired SVG image size during image loading. Because vector image like SVG format, may not contains a fixed size, or you want to get a larger size bitmap representation UIImage. (NSValue)
  */
-FOUNDATION_EXPORT SDWebImageContextOption _Nonnull const SDWebImageContextVectorImageSize;
+FOUNDATION_EXPORT SDWebImageContextOption _Nonnull const SDWebImageContextSVGImageSize;

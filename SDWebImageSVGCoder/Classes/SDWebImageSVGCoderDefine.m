@@ -140,4 +140,4 @@ void SDAdjustSVGContentMode(SVGKImage * svgImage, UIViewContentMode contentMode,
 }
 #endif
 
-SDWebImageContextOption _Nonnull const SDWebImageContextVectorImageSize = @"vectorImageSize";
+SDWebImageContextOption _Nonnull const SDWebImageContextSVGImageSize = @"svgImageSize";
