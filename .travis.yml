@@ -17,6 +17,8 @@ before_install:
   - locale
   - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
   - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+  - brew update
+  - brew upgrade carthage
   - pod --version
   - pod setup --silent > /dev/null
   - pod repo update --silent
@@ -28,7 +30,13 @@ script:
   - set -o pipefail
 
   - echo Check if the library described by the podspec can be built
-  - pod lib lint --allow-warnings
+  # - pod lib lint --allow-warnings
+
+  - echo Build as dynamic frameworks
+  - carthage update --platform ios,tvos,macos --configuration DEBUG
+  - xcodebuild build clean -project SDWebImageSVGCoder.xcodeproj -scheme 'SDWebImageSVGCoder iOS' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
+  - xcodebuild build clean -project SDWebImageSVGCoder.xcodeproj -scheme 'SDWebImageSVGCoder tvOS' -sdk appletvsimulator -configuration Debug | xcpretty -c
+  - xcodebuild build clean -project SDWebImageSVGCoder.xcodeproj -scheme 'SDWebImageSVGCoder macOS' -sdk macosx -configuration Debug | xcpretty -c
 
   - echo Build example
   - pod install --project-directory=Example
