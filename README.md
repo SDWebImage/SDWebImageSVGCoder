@@ -20,6 +20,7 @@ You can modify the code or use some other SVG files to check the compatibility.
 
 + iOS 8
 + tvOS 9
++ macOS 10.10
 
 ## Installation
 

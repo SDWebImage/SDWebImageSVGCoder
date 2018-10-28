@@ -19,7 +19,12 @@
 - (instancetype)initWithSVGImage:(SVGKImage *)image {
     NSParameterAssert(image);
     UIImage *posterImage = image.UIImage;
-    self = [super initWithCGImage:posterImage.CGImage scale:posterImage.scale orientation:posterImage.imageOrientation];
+#if SD_UIKIT
+    UIImageOrientation imageOrientation = posterImage.imageOrientation;
+#else
+    CGImagePropertyOrientation imageOrientation = kCGImagePropertyOrientationUp;
+#endif
+    self = [super initWithCGImage:posterImage.CGImage scale:posterImage.scale orientation:imageOrientation];
     if (self) {
         self.SVGImage = image;
     }
@@ -59,7 +64,12 @@
     // Check specified image size
     SDWebImageContext *context = options[SDImageCoderWebImageContext];
     if (context[SDWebImageContextVectorImageSize]) {
-        CGSize imageSize = [context[SDWebImageContextVectorImageSize] CGSizeValue];
+        NSValue *sizeValue = context[SDWebImageContextVectorImageSize];
+#if SD_UIKIT
+        CGSize imageSize = sizeValue.CGSizeValue;
+#else
+        CGSize imageSize = sizeValue.sizeValue;
+#endif
         if (!CGSizeEqualToSize(imageSize, CGSizeZero)) {
             svgImage.size = imageSize;
         }

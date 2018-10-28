@@ -7,6 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		328C14BE2184CEE7006B0C4A /* SDImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133C2170AB0F00DBD6ED /* SDImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		328C14BF2184CEE7006B0C4A /* SDImageSVGCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */; };
+		328C14C02184CEE7006B0C4A /* SDSVGImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133E2170AB0F00DBD6ED /* SDSVGImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		328C14C12184CEE7006B0C4A /* SDSVGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133A2170AB0F00DBD6ED /* SDSVGImage.m */; };
+		328C14C22184CEE7006B0C4A /* SDWebImageSVGCoderDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133B2170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		328C14C32184CEE7006B0C4A /* SDWebImageSVGCoderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133D2170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.m */; };
+		328C14C42184CEE7006B0C4A /* SVGKImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613392170AB0F00DBD6ED /* SVGKImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		328C14C52184CEE7006B0C4A /* SVGKImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133F2170AB0F00DBD6ED /* SVGKImageView+WebCache.m */; };
+		328C14C62184CEE8006B0C4A /* SDImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133C2170AB0F00DBD6ED /* SDImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		328C14C72184CEE8006B0C4A /* SDImageSVGCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */; };
+		328C14C82184CEE8006B0C4A /* SDSVGImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133E2170AB0F00DBD6ED /* SDSVGImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		328C14C92184CEE8006B0C4A /* SDSVGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133A2170AB0F00DBD6ED /* SDSVGImage.m */; };
+		328C14CA2184CEE8006B0C4A /* SDWebImageSVGCoderDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133B2170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		328C14CB2184CEE8006B0C4A /* SDWebImageSVGCoderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133D2170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.m */; };
+		328C14CC2184CEE8006B0C4A /* SVGKImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613392170AB0F00DBD6ED /* SVGKImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		328C14CD2184CEE8006B0C4A /* SVGKImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133F2170AB0F00DBD6ED /* SVGKImageView+WebCache.m */; };
+		328C14CE2184CEF3006B0C4A /* SDWebImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613492170AB1600DBD6ED /* SDWebImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		328C14CF2184CEF3006B0C4A /* SDWebImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613492170AB1600DBD6ED /* SDWebImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		328C14D52184D131006B0C4A /* SVGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 328C14D42184D131006B0C4A /* SVGKit.framework */; };
+		328C14D72184D13B006B0C4A /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 328C14D62184D13B006B0C4A /* SDWebImage.framework */; };
+		328C14D82184D148006B0C4A /* SVGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 328C14D22184D11F006B0C4A /* SVGKit.framework */; };
+		328C14D92184D151006B0C4A /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 328C14D02184D111006B0C4A /* SDWebImage.framework */; };
 		32B613402170AB0F00DBD6ED /* SDImageSVGCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */; };
 		32B613422170AB0F00DBD6ED /* SVGKImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613392170AB0F00DBD6ED /* SVGKImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32B613432170AB0F00DBD6ED /* SDSVGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133A2170AB0F00DBD6ED /* SDSVGImage.m */; };
@@ -18,10 +40,14 @@
 		32B6134A2170AB1600DBD6ED /* SDWebImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613492170AB1600DBD6ED /* SDWebImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32B6134D2170B16400DBD6ED /* SVGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B6134C2170B16400DBD6ED /* SVGKit.framework */; };
 		32B6134F2170B17200DBD6ED /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B6134E2170B17200DBD6ED /* SDWebImage.framework */; };
-		32B613592170B19800DBD6ED /* SDWebImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613572170B19800DBD6ED /* SDWebImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		328C14B62184C856006B0C4A /* SDWebImageSVGCoder_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		328C14D02184D111006B0C4A /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/tvOS/SDWebImage.framework; sourceTree = "<group>"; };
+		328C14D22184D11F006B0C4A /* SVGKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVGKit.framework; path = Carthage/Build/tvOS/SVGKit.framework; sourceTree = "<group>"; };
+		328C14D42184D131006B0C4A /* SVGKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVGKit.framework; path = Carthage/Build/Mac/SVGKit.framework; sourceTree = "<group>"; };
+		328C14D62184D13B006B0C4A /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/Mac/SDWebImage.framework; sourceTree = "<group>"; };
 		32B613192170AA2900DBD6ED /* SDWebImageSVGCoder_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B613242170AA9300DBD6ED /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Module/Info.plist; sourceTree = "<group>"; };
 		32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageSVGCoder.m; sourceTree = "<group>"; };
@@ -41,6 +67,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		328C14B32184C856006B0C4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				328C14D72184D13B006B0C4A /* SDWebImage.framework in Frameworks */,
+				328C14D52184D131006B0C4A /* SVGKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		32B613162170AA2900DBD6ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -54,6 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				328C14D92184D151006B0C4A /* SDWebImage.framework in Frameworks */,
+				328C14D82184D148006B0C4A /* SVGKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +112,7 @@
 			children = (
 				32B613192170AA2900DBD6ED /* SDWebImageSVGCoder_iOS.framework */,
 				32B613552170B19800DBD6ED /* SDWebImageSVGCoder_tvOS.framework */,
+				328C14B62184C856006B0C4A /* SDWebImageSVGCoder_macOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,7 +145,11 @@
 		32B6134B2170B16400DBD6ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				328C14D62184D13B006B0C4A /* SDWebImage.framework */,
+				328C14D22184D11F006B0C4A /* SVGKit.framework */,
+				328C14D42184D131006B0C4A /* SVGKit.framework */,
 				32B6134E2170B17200DBD6ED /* SDWebImage.framework */,
+				328C14D02184D111006B0C4A /* SDWebImage.framework */,
 				32B6134C2170B16400DBD6ED /* SVGKit.framework */,
 			);
 			name = Frameworks;
@@ -125,6 +167,18 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		328C14B12184C856006B0C4A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				328C14CC2184CEE8006B0C4A /* SVGKImageView+WebCache.h in Headers */,
+				328C14C82184CEE8006B0C4A /* SDSVGImage.h in Headers */,
+				328C14C62184CEE8006B0C4A /* SDImageSVGCoder.h in Headers */,
+				328C14CA2184CEE8006B0C4A /* SDWebImageSVGCoderDefine.h in Headers */,
+				328C14CE2184CEF3006B0C4A /* SDWebImageSVGCoder.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		32B613142170AA2900DBD6ED /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,13 +195,35 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32B613592170B19800DBD6ED /* SDWebImageSVGCoder.h in Headers */,
+				328C14C22184CEE7006B0C4A /* SDWebImageSVGCoderDefine.h in Headers */,
+				328C14BE2184CEE7006B0C4A /* SDImageSVGCoder.h in Headers */,
+				328C14C42184CEE7006B0C4A /* SVGKImageView+WebCache.h in Headers */,
+				328C14CF2184CEF3006B0C4A /* SDWebImageSVGCoder.h in Headers */,
+				328C14C02184CEE7006B0C4A /* SDSVGImage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		328C14B52184C856006B0C4A /* SDWebImageSVGCoder macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 328C14BB2184C856006B0C4A /* Build configuration list for PBXNativeTarget "SDWebImageSVGCoder macOS" */;
+			buildPhases = (
+				328C14B12184C856006B0C4A /* Headers */,
+				328C14B22184C856006B0C4A /* Sources */,
+				328C14B32184C856006B0C4A /* Frameworks */,
+				328C14B42184C856006B0C4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SDWebImageSVGCoder macOS";
+			productName = "SDWebImageSVGCoder-macOS";
+			productReference = 328C14B62184C856006B0C4A /* SDWebImageSVGCoder_macOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		32B613182170AA2900DBD6ED /* SDWebImageSVGCoder iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32B613212170AA2900DBD6ED /* Build configuration list for PBXNativeTarget "SDWebImageSVGCoder iOS" */;
@@ -193,6 +269,9 @@
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = SDWebImageSVGCoder;
 				TargetAttributes = {
+					328C14B52184C856006B0C4A = {
+						CreatedOnToolsVersion = 10.0;
+					};
 					32B613182170AA2900DBD6ED = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -215,11 +294,19 @@
 			targets = (
 				32B613182170AA2900DBD6ED /* SDWebImageSVGCoder iOS */,
 				32B613542170B19800DBD6ED /* SDWebImageSVGCoder tvOS */,
+				328C14B52184C856006B0C4A /* SDWebImageSVGCoder macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		328C14B42184C856006B0C4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		32B613172170AA2900DBD6ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -237,6 +324,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		328C14B22184C856006B0C4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				328C14CB2184CEE8006B0C4A /* SDWebImageSVGCoderDefine.m in Sources */,
+				328C14CD2184CEE8006B0C4A /* SVGKImageView+WebCache.m in Sources */,
+				328C14C72184CEE8006B0C4A /* SDImageSVGCoder.m in Sources */,
+				328C14C92184CEE8006B0C4A /* SDSVGImage.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		32B613152170AA2900DBD6ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,12 +350,76 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				328C14C32184CEE7006B0C4A /* SDWebImageSVGCoderDefine.m in Sources */,
+				328C14C52184CEE7006B0C4A /* SVGKImageView+WebCache.m in Sources */,
+				328C14BF2184CEE7006B0C4A /* SDImageSVGCoder.m in Sources */,
+				328C14C12184CEE7006B0C4A /* SDSVGImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		328C14BC2184C856006B0C4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/SDWebImageSVGCoder/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.SDWebImageSVGCoder;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		328C14BD2184C856006B0C4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/SDWebImageSVGCoder/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.SDWebImageSVGCoder;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		32B6131F2170AA2900DBD6ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -441,6 +603,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				INFOPLIST_FILE = SDWebImageSVGCoder/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -466,6 +632,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				INFOPLIST_FILE = SDWebImageSVGCoder/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -485,6 +655,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		328C14BB2184C856006B0C4A /* Build configuration list for PBXNativeTarget "SDWebImageSVGCoder macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				328C14BC2184C856006B0C4A /* Debug */,
+				328C14BD2184C856006B0C4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		32B613132170AA2900DBD6ED /* Build configuration list for PBXProject "SDWebImageSVGCoder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

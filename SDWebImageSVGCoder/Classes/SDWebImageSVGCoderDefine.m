@@ -8,6 +8,7 @@
 #import "SDWebImageSVGCoderDefine.h"
 #import <SVGKit/SVGKit.h>
 
+#if SD_UIKIT
 void SDAdjustSVGContentMode(SVGKImage * svgImage, UIViewContentMode contentMode, CGSize viewSize) {
     NSCParameterAssert(svgImage);
     if (!svgImage.hasSize) {
@@ -137,5 +138,6 @@ void SDAdjustSVGContentMode(SVGKImage * svgImage, UIViewContentMode contentMode,
             break;
     }
 }
+#endif
 
 SDWebImageContextOption _Nonnull const SDWebImageContextVectorImageSize = @"vectorImageSize";

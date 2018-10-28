@@ -81,9 +81,11 @@
                                svgImage = ((SDSVGImage *)image).SVGImage;
                            }
                            if (svgImage) {
+#if SD_UIKIT
                                if (self.sd_adjustContentMode) {
                                    SDAdjustSVGContentMode(svgImage, strongSelf.contentMode, strongSelf.bounds.size);
                                }
+#endif
                                strongSelf.image = svgImage;
                            } else {
                                strongSelf.image = nil;

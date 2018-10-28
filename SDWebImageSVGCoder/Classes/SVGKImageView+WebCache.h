@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Unlike `UIView`, `SVGKImageView`'s subclass does not follows `UIView.contentMode` property, the position of SVG vector image is controled by `SVGKImage` instance with SVG's viewport && viewbox information. You can adjust it after image was loading, however it's not so convenient.
  * So we provide a simple solution. If you want the same behavior like UIImageView to use `contentMode` property to position SVG images, set this value to YES and we'll resize the SVG image to correspond `contentMode` of `SVGKImageView` during image loading.
  */
-@property (nonatomic, assign) BOOL sd_adjustContentMode;
+@property (nonatomic, assign) BOOL sd_adjustContentMode API_UNAVAILABLE(macos);
 
 /**
  * Set the imageView `image` with an `url`.

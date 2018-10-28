@@ -30,14 +30,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SVGKit:
-    :commit: 733acf66e44a02396efc8a6f445d190af592d544
+    :commit: b1eae9cf1b1dbf69bc15334f905f5c602f1b13ca
     :git: https://github.com/SVGKit/SVGKit.git
 
 SPEC CHECKSUMS:
   CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
   SDWebImage: e52654ceef9fdc19f4c612d64a5b6d3f05dd81a4
-  SDWebImageSVGCoder: f2b3b74ff39acbb28f60c1dad2e0fd19fa04cb6c
-  SVGKit: 4055d9e809b5db8633755979cfb3b02dc5a8c20d
+  SDWebImageSVGCoder: a39ffaef7618b138d18eef8e3c49c96a3637fbe2
+  SVGKit: e0b3dd403cc7cf0d66889f32b6aa1a6b38aa6911
 
 PODFILE CHECKSUM: dc5153f27ba2a6dd43c49d8e0100b34b78f46730
 
