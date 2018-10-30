@@ -56,9 +56,9 @@
     
     if (!CGSizeEqualToSize(imageSize, CGSizeZero)) {
         if (preserveAspectRatio) {
-            SDAdjustSVGContentMode(svgImage, UIViewContentModeScaleAspectFit, imageSize);
+            [svgImage scaleToFitInside:imageSize];
         } else {
-            SDAdjustSVGContentMode(svgImage, UIViewContentModeScaleToFill, imageSize);
+            svgImage.size = imageSize;
         }
     }
     
