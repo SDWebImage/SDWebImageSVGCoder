@@ -7,8 +7,8 @@ PODS:
     - CocoaLumberjack/Default
   - SDWebImage/Core (5.0.0-beta3)
   - SDWebImageSVGCoder (0.1.0):
-    - SDWebImage/Core (>= 5.0.0-beta2)
-    - SVGKit (>= 2.x)
+    - SDWebImage/Core (>= 5.0.0-beta3)
+    - SVGKit (>= 2.1)
   - SVGKit (2.1.0):
     - CocoaLumberjack (~> 3.0)
 
@@ -31,7 +31,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
   SDWebImage: e52654ceef9fdc19f4c612d64a5b6d3f05dd81a4
-  SDWebImageSVGCoder: a39ffaef7618b138d18eef8e3c49c96a3637fbe2
+  SDWebImageSVGCoder: adcf27c5fe8424441f515f54409c64b57dbaed1b
   SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
 
 PODFILE CHECKSUM: dc5153f27ba2a6dd43c49d8e0100b34b78f46730

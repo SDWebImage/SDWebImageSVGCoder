@@ -37,7 +37,6 @@
     
     // `SVGKFastImageView`, draw SVG as bitmap dynamically when size changed.
     SVGKImageView *imageView2 = [[SVGKFastImageView alloc] initWithFrame:CGRectMake(0, screenSize.height / 2, screenSize.width, screenSize.height / 2)];
-    imageView2.sd_adjustContentMode = YES;
     imageView2.clipsToBounds = YES;
     
     // `UIImageView`, draw SVG as bitmap image with fixed size, like PNG.

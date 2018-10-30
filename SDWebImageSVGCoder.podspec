@@ -33,6 +33,6 @@ TODO: Add long description of the pod here.
   s.source_files = 'SDWebImageSVGCoder/Classes/**/*', 'SDWebImageSVGCoder/Module/SDWebImageSVGCoder.h'
   s.module_map = 'SDWebImageSVGCoder/Module/SDWebImageSVGCoder.modulemap'
   
-  s.dependency 'SDWebImage/Core', '>= 5.0.0-beta2'
-  s.dependency 'SVGKit', '>= 2.x'
+  s.dependency 'SDWebImage/Core', '>= 5.0.0-beta3'
+  s.dependency 'SVGKit', '>= 2.1'
 end

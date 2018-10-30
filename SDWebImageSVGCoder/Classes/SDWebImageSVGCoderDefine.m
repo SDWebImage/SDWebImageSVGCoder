@@ -24,8 +24,6 @@ void SDAdjustSVGContentMode(SVGKImage * svgImage, UIViewContentMode contentMode,
     CGFloat hScale = viewSize.height / imageSize.height;
     CGFloat imageAspect = imageSize.width / imageSize.height;
     CGFloat viewAspect = viewSize.width / viewSize.height;
-    CGFloat smallestScaleUp = MIN(wScale, hScale);
-    CGFloat biggestScaleDown = MAX(wScale, hScale);
     CGFloat xPosition;
     CGFloat yPosition;
     
@@ -36,10 +34,24 @@ void SDAdjustSVGContentMode(SVGKImage * svgImage, UIViewContentMode contentMode,
         }
             break;
         case UIViewContentModeScaleAspectFit: {
-            CGFloat scale = smallestScaleUp < 1.0f ? biggestScaleDown : smallestScaleUp;
+            CGFloat scale;
+            if (imageAspect > viewAspect) {
+                // scale width
+                scale = wScale;
+            } else {
+                // scale height
+                scale = hScale;
+            }
             CGSize targetSize = CGSizeApplyAffineTransform(imageSize, CGAffineTransformMakeScale(scale, scale));
-            xPosition = (viewSize.width - targetSize.width) / 2;
-            yPosition = (viewSize.height - targetSize.height) / 2;
+            if (imageAspect > viewAspect) {
+                // need center y as well
+                xPosition = 0;
+                yPosition = ABS(targetSize.height - viewSize.height) / 2;
+            } else {
+                // need center x as well
+                xPosition = ABS(targetSize.width - viewSize.width) / 2;
+                yPosition = 0;
+            }
             svgImage.size = targetSize;
             svgImage.DOMTree.viewport = SVGRectMake(xPosition, yPosition, targetSize.width, targetSize.height);
             // masksToBounds to clip the sublayer which beyond the viewport to match `UIImageView` behavior
@@ -59,10 +71,10 @@ void SDAdjustSVGContentMode(SVGKImage * svgImage, UIViewContentMode contentMode,
             if (imageAspect < viewAspect) {
                 // need center y as well
                 xPosition = 0;
-                yPosition = (targetSize.height - viewSize.height) / 2;
+                yPosition = ABS(targetSize.height - viewSize.height) / 2;
             } else {
                 // need center x as well
-                xPosition = (targetSize.width - viewSize.width) / 2;
+                xPosition = ABS(targetSize.width - viewSize.width) / 2;
                 yPosition = 0;
             }
             svgImage.size = targetSize;
