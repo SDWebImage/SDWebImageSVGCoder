@@ -31,10 +31,7 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'SDWebImageSVGCoder'
-pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x'
 ```
-
-**Note:** Because the dependency third party library [SVGKit](https://github.com/SVGKit/SVGKit#versions) does not release the 2.x version, and the current latest release version is not compatible for Xcode 9/10. So you should specify `2.x` branch dependency or using commit-id to import the dependency through CocoaPods.
 
 #### Carthage
 
@@ -44,7 +41,6 @@ Note that because the dependency SDWebImage currently is in beta. You should use
 
 ```
 github "SDWebImage/SDWebImageSVGCoder"
-github "SVGKit/SVGKit" "2.x"
 ```
 
 ## Usage
@@ -109,6 +105,9 @@ imageView.sd_setImage(with: url)
 ## Screenshot
 
 <img src="https://raw.githubusercontent.com/SDWebImage/SDWebImageSVGCoder/master/Example/Screenshot/SVGDemo.png" width="300" />
+<img src="https://raw.githubusercontent.com/SDWebImage/SDWebImageSVGCoder/master/Example/Screenshot/SVGDemo-macOS.png" width="600" />
+
+These SVG images are from [wikimedia](https://commons.wikimedia.org/wiki/Main_Page), you can try the demo with your own SVG image as well.
 
 ## Author
 

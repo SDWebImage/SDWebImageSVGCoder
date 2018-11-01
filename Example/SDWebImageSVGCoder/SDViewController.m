@@ -30,13 +30,15 @@
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     
     // `SVGKLayeredImageView`, best on performance and do actually vector image rendering (translate SVG to CALayer tree).
-    SVGKImageView *imageView1 = [[SVGKLayeredImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height / 2)];
+    SVGKImageView *imageView1 = [[SVGKLayeredImageView alloc] initWithSVGKImage:nil];
+    imageView1.frame = CGRectMake(0, 0, screenSize.width, screenSize.height / 2);
     imageView1.sd_adjustContentMode = YES; // make `contentMode` works
     imageView1.contentMode = UIViewContentModeScaleAspectFill;
     imageView1.clipsToBounds = YES;
     
     // `SVGKFastImageView`, draw SVG as bitmap dynamically when size changed.
-    SVGKImageView *imageView2 = [[SVGKFastImageView alloc] initWithFrame:CGRectMake(0, screenSize.height / 2, screenSize.width, screenSize.height / 2)];
+    SVGKImageView *imageView2 = [[SVGKFastImageView alloc] initWithSVGKImage:nil];
+    imageView2.frame = CGRectMake(0, screenSize.height / 2, screenSize.width, screenSize.height / 2);
     imageView2.clipsToBounds = YES;
     
     // `UIImageView`, draw SVG as bitmap image with fixed size, like PNG.

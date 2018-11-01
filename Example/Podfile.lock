@@ -14,19 +14,16 @@ PODS:
 
 DEPENDENCIES:
   - SDWebImageSVGCoder (from `../`)
-  - SVGKit (from `https://github.com/SVGKit/SVGKit.git`, branch `2.x`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CocoaLumberjack
+    - SDWebImage
+    - SVGKit
 
 EXTERNAL SOURCES:
   SDWebImageSVGCoder:
-    :path: ../
-  SVGKit:
-    :branch: 2.x
-    :git: https://github.com/SVGKit/SVGKit.git
-
-CHECKOUT OPTIONS:
-  SVGKit:
-    :commit: 0d4db53890c664fb8605666e6fbccd14912ff821
-    :git: https://github.com/SVGKit/SVGKit.git
+    :path: "../"
 
 SPEC CHECKSUMS:
   CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
@@ -34,6 +31,6 @@ SPEC CHECKSUMS:
   SDWebImageSVGCoder: adcf27c5fe8424441f515f54409c64b57dbaed1b
   SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
 
-PODFILE CHECKSUM: dc5153f27ba2a6dd43c49d8e0100b34b78f46730
+PODFILE CHECKSUM: 5438d217c00bb7b2da72c6e8ce8ec9db055a4cc6
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

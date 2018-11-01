@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1B120FEBF3CF884B01C22A65 /* Pods_SDWebImageSVGCoder_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDFBE5FE210B6EA9BEA6BF5 /* Pods_SDWebImageSVGCoder_Example.framework */; };
+		322BBD84218AC06100D62A04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 322BBD83218AC06100D62A04 /* AppDelegate.m */; };
+		322BBD87218AC06100D62A04 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 322BBD86218AC06100D62A04 /* ViewController.m */; };
+		322BBD89218AC06200D62A04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 322BBD88218AC06200D62A04 /* Assets.xcassets */; };
+		322BBD8C218AC06200D62A04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 322BBD8A218AC06200D62A04 /* Main.storyboard */; };
+		322BBD8F218AC06200D62A04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 322BBD8E218AC06200D62A04 /* main.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -23,6 +28,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		785555F018A327A7140C39D3 /* Pods_SDWebImageSVGCoder_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A203BCEC7D298BB657BD24 /* Pods_SDWebImageSVGCoder_Tests.framework */; };
+		84A44F06B6D36A9FEB5E4893 /* Pods_SDWebImageSVGCoder_Example_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915223E8B238E1350B34F5C5 /* Pods_SDWebImageSVGCoder_Example_macOS.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -37,10 +43,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2EB48F9ACEB911E2F7FA610A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		138417F36F30265E95762FF1 /* Pods-SDWebImageSVGCoder_Example macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageSVGCoder_Example macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDWebImageSVGCoder_Example macOS/Pods-SDWebImageSVGCoder_Example macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		2EB48F9ACEB911E2F7FA610A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		2EDFBE5FE210B6EA9BEA6BF5 /* Pods_SDWebImageSVGCoder_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDWebImageSVGCoder_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		322BBD80218AC06100D62A04 /* SDWebImageSVGCoder_Example macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SDWebImageSVGCoder_Example macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		322BBD82218AC06100D62A04 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		322BBD83218AC06100D62A04 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		322BBD85218AC06100D62A04 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		322BBD86218AC06100D62A04 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		322BBD88218AC06200D62A04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		322BBD8B218AC06200D62A04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		322BBD8D218AC06200D62A04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		322BBD8E218AC06200D62A04 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		322BBD90218AC06200D62A04 /* SDWebImageSVGCoder_Example_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SDWebImageSVGCoder_Example_macOS.entitlements; sourceTree = "<group>"; };
+		3735393AE6DB842F16DE620D /* Pods-SDWebImageSVGCoder_Example macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageSVGCoder_Example macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDWebImageSVGCoder_Example macOS/Pods-SDWebImageSVGCoder_Example macOS.release.xcconfig"; sourceTree = "<group>"; };
 		3DF753CF34D55095918357E5 /* Pods-SDWebImageSVGCoder_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageSVGCoder_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDWebImageSVGCoder_Example/Pods-SDWebImageSVGCoder_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		599C654BCC4E3AD7DDA65F1A /* SDWebImageSVGCoder.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = SDWebImageSVGCoder.podspec; path = ../SDWebImageSVGCoder.podspec; sourceTree = "<group>"; };
+		599C654BCC4E3AD7DDA65F1A /* SDWebImageSVGCoder.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SDWebImageSVGCoder.podspec; path = ../SDWebImageSVGCoder.podspec; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SDWebImageSVGCoder_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDWebImageSVGCoder_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,15 +79,24 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		86AFC8B1B29BB8ED1BFC9791 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		86AFC8B1B29BB8ED1BFC9791 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BBC5C427EF452F5C6FAEB4D /* Pods-SDWebImageSVGCoder_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageSVGCoder_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDWebImageSVGCoder_Example/Pods-SDWebImageSVGCoder_Example.release.xcconfig"; sourceTree = "<group>"; };
+		915223E8B238E1350B34F5C5 /* Pods_SDWebImageSVGCoder_Example_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDWebImageSVGCoder_Example_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB17C98205F823EA2BBA9377 /* Pods-SDWebImageSVGCoder_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageSVGCoder_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDWebImageSVGCoder_Tests/Pods-SDWebImageSVGCoder_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B57CEF8C07005FBF3F911CA3 /* Pods-SDWebImageSVGCoder_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageSVGCoder_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDWebImageSVGCoder_Tests/Pods-SDWebImageSVGCoder_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9A203BCEC7D298BB657BD24 /* Pods_SDWebImageSVGCoder_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDWebImageSVGCoder_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		322BBD7D218AC06100D62A04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A44F06B6D36A9FEB5E4893 /* Pods_SDWebImageSVGCoder_Example_macOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6003F587195388D20070C39A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -95,12 +122,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		322BBD81218AC06100D62A04 /* SDWebImageSVGCoder-Example-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				322BBD82218AC06100D62A04 /* AppDelegate.h */,
+				322BBD83218AC06100D62A04 /* AppDelegate.m */,
+				322BBD85218AC06100D62A04 /* ViewController.h */,
+				322BBD86218AC06100D62A04 /* ViewController.m */,
+				322BBD88218AC06200D62A04 /* Assets.xcassets */,
+				322BBD8A218AC06200D62A04 /* Main.storyboard */,
+				322BBD8D218AC06200D62A04 /* Info.plist */,
+				322BBD8E218AC06200D62A04 /* main.m */,
+				322BBD90218AC06200D62A04 /* SDWebImageSVGCoder_Example_macOS.entitlements */,
+			);
+			path = "SDWebImageSVGCoder-Example-macOS";
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for SDWebImageSVGCoder */,
 				6003F5B5195388D20070C39A /* Tests */,
+				322BBD81218AC06100D62A04 /* SDWebImageSVGCoder-Example-macOS */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				A55E85728765F7686848CF37 /* Pods */,
@@ -112,6 +156,7 @@
 			children = (
 				6003F58A195388D20070C39A /* SDWebImageSVGCoder_Example.app */,
 				6003F5AE195388D20070C39A /* SDWebImageSVGCoder_Tests.xctest */,
+				322BBD80218AC06100D62A04 /* SDWebImageSVGCoder_Example macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +170,7 @@
 				6003F5AF195388D20070C39A /* XCTest.framework */,
 				2EDFBE5FE210B6EA9BEA6BF5 /* Pods_SDWebImageSVGCoder_Example.framework */,
 				B9A203BCEC7D298BB657BD24 /* Pods_SDWebImageSVGCoder_Tests.framework */,
+				915223E8B238E1350B34F5C5 /* Pods_SDWebImageSVGCoder_Example_macOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -192,6 +238,8 @@
 				8BBC5C427EF452F5C6FAEB4D /* Pods-SDWebImageSVGCoder_Example.release.xcconfig */,
 				B57CEF8C07005FBF3F911CA3 /* Pods-SDWebImageSVGCoder_Tests.debug.xcconfig */,
 				AB17C98205F823EA2BBA9377 /* Pods-SDWebImageSVGCoder_Tests.release.xcconfig */,
+				138417F36F30265E95762FF1 /* Pods-SDWebImageSVGCoder_Example macOS.debug.xcconfig */,
+				3735393AE6DB842F16DE620D /* Pods-SDWebImageSVGCoder_Example macOS.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -199,6 +247,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		322BBD7F218AC06100D62A04 /* SDWebImageSVGCoder_Example macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 322BBD93218AC06200D62A04 /* Build configuration list for PBXNativeTarget "SDWebImageSVGCoder_Example macOS" */;
+			buildPhases = (
+				412D33193F9D65A6AC516287 /* [CP] Check Pods Manifest.lock */,
+				322BBD7C218AC06100D62A04 /* Sources */,
+				322BBD7D218AC06100D62A04 /* Frameworks */,
+				322BBD7E218AC06100D62A04 /* Resources */,
+				BD5F0CD3654B1E4365BEFBDF /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SDWebImageSVGCoder_Example macOS";
+			productName = "SDWebImageSVGCoder-Example-macOS";
+			productReference = 322BBD80218AC06100D62A04 /* SDWebImageSVGCoder_Example macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		6003F589195388D20070C39A /* SDWebImageSVGCoder_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "SDWebImageSVGCoder_Example" */;
@@ -208,7 +275,6 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				9996E5BF0D2DF1699498034B /* [CP] Embed Pods Frameworks */,
-				6E9B5025028C084E8C5201BE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,8 +293,6 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				78B77BB5EB3E09EA434F9AD9 /* [CP] Embed Pods Frameworks */,
-				95FB492014414A34FEAC8799 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,9 +311,19 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SD;
+				DefaultBuildSystemTypeForWorkspace = Original;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "lizhuoli1126@126.com";
 				TargetAttributes = {
+					322BBD7F218AC06100D62A04 = {
+						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -270,11 +344,21 @@
 			targets = (
 				6003F589195388D20070C39A /* SDWebImageSVGCoder_Example */,
 				6003F5AD195388D20070C39A /* SDWebImageSVGCoder_Tests */,
+				322BBD7F218AC06100D62A04 /* SDWebImageSVGCoder_Example macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		322BBD7E218AC06100D62A04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				322BBD89218AC06200D62A04 /* Assets.xcassets in Resources */,
+				322BBD8C218AC06200D62A04 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6003F588195388D20070C39A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,19 +381,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6E9B5025028C084E8C5201BE /* [CP] Copy Pods Resources */ = {
+		412D33193F9D65A6AC516287 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SDWebImageSVGCoder_Example macOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDWebImageSVGCoder_Example/Pods-SDWebImageSVGCoder_Example-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		750ABDA0E7C25783B338A0BD /* [CP] Check Pods Manifest.lock */ = {
@@ -330,36 +421,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		78B77BB5EB3E09EA434F9AD9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDWebImageSVGCoder_Tests/Pods-SDWebImageSVGCoder_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		95FB492014414A34FEAC8799 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDWebImageSVGCoder_Tests/Pods-SDWebImageSVGCoder_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9996E5BF0D2DF1699498034B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,10 +428,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SDWebImageSVGCoder_Example/Pods-SDWebImageSVGCoder_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImageSVGCoder/SDWebImageSVGCoder.framework",
-				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack-iOS/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage-iOS/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImageSVGCoder-iOS/SDWebImageSVGCoder.framework",
+				"${BUILT_PRODUCTS_DIR}/SVGKit-iOS/SVGKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -382,6 +443,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDWebImageSVGCoder_Example/Pods-SDWebImageSVGCoder_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD5F0CD3654B1E4365BEFBDF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SDWebImageSVGCoder_Example macOS/Pods-SDWebImageSVGCoder_Example macOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack-macOS/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage-macOS/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImageSVGCoder-macOS/SDWebImageSVGCoder.framework",
+				"${BUILT_PRODUCTS_DIR}/SVGKit-macOS/SVGKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImageSVGCoder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDWebImageSVGCoder_Example macOS/Pods-SDWebImageSVGCoder_Example macOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F8ED3998881DDB15315EBD32 /* [CP] Check Pods Manifest.lock */ = {
@@ -405,6 +494,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		322BBD7C218AC06100D62A04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				322BBD87218AC06100D62A04 /* ViewController.m in Sources */,
+				322BBD8F218AC06200D62A04 /* main.m in Sources */,
+				322BBD84218AC06100D62A04 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6003F586195388D20070C39A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -434,6 +533,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		322BBD8A218AC06200D62A04 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				322BBD8B218AC06200D62A04 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		6003F596195388D20070C39A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -461,6 +568,87 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		322BBD91218AC06200D62A04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 138417F36F30265E95762FF1 /* Pods-SDWebImageSVGCoder_Example macOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "SDWebImageSVGCoder-Example-macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.SDWebImageSVGCoder-Example-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		322BBD92218AC06200D62A04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3735393AE6DB842F16DE620D /* Pods-SDWebImageSVGCoder_Example macOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "SDWebImageSVGCoder-Example-macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.SDWebImageSVGCoder-Example-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		6003F5BD195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -611,6 +799,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		322BBD93218AC06200D62A04 /* Build configuration list for PBXNativeTarget "SDWebImageSVGCoder_Example macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				322BBD91218AC06200D62A04 /* Debug */,
+				322BBD92218AC06200D62A04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6003F585195388D10070C39A /* Build configuration list for PBXProject "SDWebImageSVGCoder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
