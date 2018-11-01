@@ -40,4 +40,5 @@ script:
 
   - echo Build example
   - pod install --project-directory=Example
-  - xcodebuild build -workspace Example/SDWebImageSVGCoder.xcworkspace -scheme SDWebImageSVGCoder-Example -sdk iphonesimulator -destination 'name=iPhone 6s' -configuration Debug | xcpretty -c
+  - xcodebuild build -workspace Example/SDWebImageSVGCoder.xcworkspace -scheme 'SDWebImageSVGCoder-Example' -sdk iphonesimulator -destination 'name=iPhone 6s' -configuration Debug | xcpretty -c
+  - xcodebuild build -workspace Example/SDWebImageSVGCoder.xcworkspace -scheme 'SDWebImageSVGCoder-Example macOS' -sdk macosx -configuration Debug | xcpretty -c
