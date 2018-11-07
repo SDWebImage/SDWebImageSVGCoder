@@ -49,7 +49,7 @@
                     NSAnimationContext *currentContext = [NSAnimationContext currentContext];
                     currentContext.duration = 2;
                     imageView2.animator.bounds = CGRectMake(0, 0, screenSize.width / 2, screenSize.height);
-                }];
+                } completionHandler:nil];
             }];
         }
     }];
