@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SDWebImageSVGCoder'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of SDWebImageSVGCoder.'
+  s.version          = '0.1.1'
+  s.summary          = 'A SVG coder plugin for SDWebImage, using SVGKit.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -33,6 +33,6 @@ TODO: Add long description of the pod here.
   s.source_files = 'SDWebImageSVGCoder/Classes/**/*', 'SDWebImageSVGCoder/Module/SDWebImageSVGCoder.h'
   s.module_map = 'SDWebImageSVGCoder/Module/SDWebImageSVGCoder.modulemap'
   
-  s.dependency 'SDWebImage/Core', '>= 5.0.0-beta3'
+  s.dependency 'SDWebImage/Core', '>= 5.0.0-beta4'
   s.dependency 'SVGKit', '>= 2.1'
 end

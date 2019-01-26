@@ -1,3 +1,3 @@
-github "CocoaLumberjack/CocoaLumberjack" "3.4.2"
-github "SDWebImage/SDWebImage" "5.0.0-beta3"
-github "SVGKit/SVGKit" "b1eae9cf1b1dbf69bc15334f905f5c602f1b13ca"
+github "CocoaLumberjack/CocoaLumberjack" "3.5.0"
+github "SDWebImage/SDWebImage" "5.0.0-beta4"
+github "SVGKit/SVGKit" "2.1.0"
