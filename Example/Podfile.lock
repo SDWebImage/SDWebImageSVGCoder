@@ -1,13 +1,10 @@
 PODS:
-  - CocoaLumberjack (3.4.2):
-    - CocoaLumberjack/Default (= 3.4.2)
-    - CocoaLumberjack/Extensions (= 3.4.2)
-  - CocoaLumberjack/Default (3.4.2)
-  - CocoaLumberjack/Extensions (3.4.2):
-    - CocoaLumberjack/Default
-  - SDWebImage/Core (5.0.0-beta3)
-  - SDWebImageSVGCoder (0.1.0):
-    - SDWebImage/Core (>= 5.0.0-beta3)
+  - CocoaLumberjack (3.5.2):
+    - CocoaLumberjack/Core (= 3.5.2)
+  - CocoaLumberjack/Core (3.5.2)
+  - SDWebImage/Core (5.0.0)
+  - SDWebImageSVGCoder (0.1.1):
+    - SDWebImage/Core (~> 5.0)
     - SVGKit (>= 2.1)
   - SVGKit (2.1.0):
     - CocoaLumberjack (~> 3.0)
@@ -26,11 +23,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
-  SDWebImage: e52654ceef9fdc19f4c612d64a5b6d3f05dd81a4
-  SDWebImageSVGCoder: adcf27c5fe8424441f515f54409c64b57dbaed1b
+  CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
+  SDWebImage: 5de80a0302de9e377e62f47d2fa1304efff0e55f
+  SDWebImageSVGCoder: 6a369e2a2cacb24de6db073346d5076834471a55
   SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
 
 PODFILE CHECKSUM: 5438d217c00bb7b2da72c6e8ce8ec9db055a4cc6
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1
