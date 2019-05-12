@@ -43,12 +43,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		328C14B62184C856006B0C4A /* SDWebImageSVGCoder_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		328C14B62184C856006B0C4A /* SDWebImageSVGCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		328C14D02184D111006B0C4A /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/tvOS/SDWebImage.framework; sourceTree = "<group>"; };
 		328C14D22184D11F006B0C4A /* SVGKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVGKit.framework; path = Carthage/Build/tvOS/SVGKit.framework; sourceTree = "<group>"; };
 		328C14D42184D131006B0C4A /* SVGKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVGKit.framework; path = Carthage/Build/Mac/SVGKit.framework; sourceTree = "<group>"; };
 		328C14D62184D13B006B0C4A /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/Mac/SDWebImage.framework; sourceTree = "<group>"; };
-		32B613192170AA2900DBD6ED /* SDWebImageSVGCoder_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32B613192170AA2900DBD6ED /* SDWebImageSVGCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B613242170AA9300DBD6ED /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Module/Info.plist; sourceTree = "<group>"; };
 		32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageSVGCoder.m; sourceTree = "<group>"; };
 		32B613392170AB0F00DBD6ED /* SVGKImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVGKImageView+WebCache.h"; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 		32B613492170AB1600DBD6ED /* SDWebImageSVGCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDWebImageSVGCoder.h; path = Module/SDWebImageSVGCoder.h; sourceTree = "<group>"; };
 		32B6134C2170B16400DBD6ED /* SVGKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVGKit.framework; path = Carthage/Build/iOS/SVGKit.framework; sourceTree = "<group>"; };
 		32B6134E2170B17200DBD6ED /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
-		32B613552170B19800DBD6ED /* SDWebImageSVGCoder_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32B613552170B19800DBD6ED /* SDWebImageSVGCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B613572170B19800DBD6ED /* SDWebImageSVGCoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDWebImageSVGCoder.h; sourceTree = "<group>"; };
 		32B613582170B19800DBD6ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,9 +110,9 @@
 		32B6131A2170AA2900DBD6ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				32B613192170AA2900DBD6ED /* SDWebImageSVGCoder_iOS.framework */,
-				32B613552170B19800DBD6ED /* SDWebImageSVGCoder_tvOS.framework */,
-				328C14B62184C856006B0C4A /* SDWebImageSVGCoder_macOS.framework */,
+				32B613192170AA2900DBD6ED /* SDWebImageSVGCoder.framework */,
+				32B613552170B19800DBD6ED /* SDWebImageSVGCoder.framework */,
+				328C14B62184C856006B0C4A /* SDWebImageSVGCoder.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,7 +221,7 @@
 			);
 			name = "SDWebImageSVGCoder macOS";
 			productName = "SDWebImageSVGCoder-macOS";
-			productReference = 328C14B62184C856006B0C4A /* SDWebImageSVGCoder_macOS.framework */;
+			productReference = 328C14B62184C856006B0C4A /* SDWebImageSVGCoder.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		32B613182170AA2900DBD6ED /* SDWebImageSVGCoder iOS */ = {
@@ -239,7 +239,7 @@
 			);
 			name = "SDWebImageSVGCoder iOS";
 			productName = SDWebImageSVGCoder;
-			productReference = 32B613192170AA2900DBD6ED /* SDWebImageSVGCoder_iOS.framework */;
+			productReference = 32B613192170AA2900DBD6ED /* SDWebImageSVGCoder.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		32B613542170B19800DBD6ED /* SDWebImageSVGCoder tvOS */ = {
@@ -257,7 +257,7 @@
 			);
 			name = "SDWebImageSVGCoder tvOS";
 			productName = SDWebImageSVGCoder;
-			productReference = 32B613552170B19800DBD6ED /* SDWebImageSVGCoder_tvOS.framework */;
+			productReference = 32B613552170B19800DBD6ED /* SDWebImageSVGCoder.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -384,8 +384,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.SDWebImageSVGCoder;
-				PRODUCT_MODULE_NAME = SDWebImageSVGCoder;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = SDWebImageSVGCoder;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
@@ -415,8 +414,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.SDWebImageSVGCoder;
-				PRODUCT_MODULE_NAME = SDWebImageSVGCoder;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = SDWebImageSVGCoder;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
@@ -562,8 +560,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.SDWebImageSVGCoder;
-				PRODUCT_MODULE_NAME = SDWebImageSVGCoder;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = SDWebImageSVGCoder;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -591,8 +588,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.SDWebImageSVGCoder;
-				PRODUCT_MODULE_NAME = SDWebImageSVGCoder;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = SDWebImageSVGCoder;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -619,8 +615,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.SDWebImageSVGCoder;
-				PRODUCT_MODULE_NAME = SDWebImageSVGCoder;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = SDWebImageSVGCoder;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -649,8 +644,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.SDWebImageSVGCoder;
-				PRODUCT_MODULE_NAME = SDWebImageSVGCoder;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = SDWebImageSVGCoder;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
