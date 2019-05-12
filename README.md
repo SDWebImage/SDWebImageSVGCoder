@@ -33,6 +33,12 @@ it, simply add the following line to your Podfile:
 pod 'SDWebImageSVGCoder'
 ```
 
+Note: The [SVGKit](https://github.com/SVGKit/SVGKit) dependency seems does not follow sem-version and didn't not release versions frequently. You can manually specify a branch or CID dependency for it. Like below:
+
+```
+pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '3.x'
+```
+
 #### Carthage
 
 SDWebImageSVGCoder is available through [Carthage](https://github.com/Carthage/Carthage).
@@ -98,6 +104,24 @@ let imageView: SVGKImageView // can be either `SVGKLayeredImageView` or `SVGKFas
 imageView.contentMode = .aspectFill
 imageView.sd_adjustContentMode = true // make `contentMode` works
 imageView.sd_setImage(with: url)
+```
+
+## Export SVG data
+
+`SDWebImageSVGCoder` provide an easy way to export the SVG image generated from framework, to the original SVG data.
+
++ Objective-C
+
+```objectivec
+UIImage *image; // Image generated from SDWebImage framework, actually a `SDSVGImage` instance.
+NSData *imageData = [image sd_imageDataAsFormat:SDImageFormatSVG];
+```
+
++ Swift
+
+```swift
+let image; // Image generated from SDWebImage framework, actually a `SDSVGImage` instance.
+let imageData = image.sd_imageData(as: .SVG)
 ```
 
 ## Screenshot
