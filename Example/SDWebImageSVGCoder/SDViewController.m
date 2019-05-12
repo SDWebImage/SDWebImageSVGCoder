@@ -51,6 +51,8 @@
     [imageView1 sd_setImageWithURL:svgURL placeholderImage:nil options:SDWebImageRetryFailed completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (image) {
             NSLog(@"SVGKLayeredImageView SVG load success");
+            NSData *svgData = [image sd_imageDataAsFormat:SDImageFormatSVG];
+            NSAssert(svgData.length > 0, @"SVG Data should exist");
         }
     }];
     [imageView2 sd_setImageWithURL:svgURL2 placeholderImage:nil options:SDWebImageRetryFailed completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
