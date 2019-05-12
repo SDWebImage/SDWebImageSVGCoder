@@ -6,6 +6,7 @@
 //
 
 #import "SDImageSVGCoder.h"
+#import "SDSVGImage.h"
 #import "SDWebImageSVGCoderDefine.h"
 #import <SVGKit/SVGKit.h>
 
@@ -76,11 +77,24 @@
 #pragma mark - Encode
 
 - (BOOL)canEncodeToFormat:(SDImageFormat)format {
-    return NO;
+    return format == SDImageFormatSVG;
 }
 
 - (NSData *)encodedDataWithImage:(UIImage *)image format:(SDImageFormat)format options:(SDImageCoderOptions *)options {
-    return nil;
+    // Only support SVGKImage wrapper
+    if (![image isKindOfClass:SDSVGImage.class]) {
+        return nil;
+    }
+    SVGKImage *svgImage = ((SDSVGImage *)image).SVGImage;
+    if (!svgImage) {
+        return nil;
+    }
+    SVGKSource *source = svgImage.source;
+    // Should be NSData type source
+    if (![source isKindOfClass:SVGKSourceNSData.class]) {
+        return nil;
+    }
+    return ((SVGKSourceNSData *)source).rawData;
 }
 
 #pragma mark - Helper
