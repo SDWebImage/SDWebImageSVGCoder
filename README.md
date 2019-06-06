@@ -10,6 +10,12 @@
 ## What's for
 SDWebImageSVGCoder is a SVG coder plugin for [SDWebImage](https://github.com/rs/SDWebImage/) framework, which provide the image loading support for [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) using [SVGKit](https://github.com/SVGKit/SVGKit) SVG engine.
 
+## Note about SVG on iOS
+
+From iOS 13 and Xcode 11, Apple provide the built-in support for SVG. You can use Xcode Asset Catalog to import your SVG files the same as PDF. (Click `Keep Vector Data`)
+
+But however, the new SVG framework (`CoreSVG.framework`) is still in Private API. If you're interested in this, you can try to use [iOS13_SVG](https://github.com/SDWebImage/SDWebImageSVGCoder/tree/iOS13_SVG) branch. Which bring the built-in SVG support for `UIImageView` and vector rendering, without the relay on SVGKit.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
