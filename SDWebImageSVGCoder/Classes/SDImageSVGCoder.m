@@ -18,6 +18,8 @@ static CGSVGDocumentRef (*CGSVGDocumentCreateFromDataProvider)(CGDataProviderRef
 static CGSVGDocumentRef (*CGSVGDocumentRetain)(CGSVGDocumentRef);
 static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
 
+#if SD_UIKIT
+
 @interface UIImage (PrivateSVGSupport)
 
 - (instancetype)_initWithCGSVGDocument:(CGSVGDocumentRef)document;
@@ -27,6 +29,8 @@ static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
 - (CGSVGDocumentRef)_CGSVGDocument;
 
 @end
+
+#endif
 
 @implementation SDImageSVGCoder
 
@@ -55,14 +59,18 @@ static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
     if (!data) {
         return nil;
     }
-    
+#if SD_UIKIT
     if ([self.class supportsVectorSVGImage]) {
         return [self createVectorSVGWithData:data options:options];
     } else {
         return [self createBitmapSVGWithData:data options:options];
     }
+#else
+    return [self createBitmapSVGWithData:data options:options];
+#endif
 }
 
+#if SD_UIKIT
 - (UIImage *)createVectorSVGWithData:(NSData *)data options:(SDImageCoderOptions *)options {
     NSParameterAssert(data);
     CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
@@ -78,6 +86,7 @@ static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
 
     return image;
 }
+#endif
 
 - (UIImage *)createBitmapSVGWithData:(NSData *)data options:(SDImageCoderOptions *)options {
     NSParameterAssert(data);
@@ -148,6 +157,9 @@ static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
 #pragma mark - Helper
 
 + (BOOL)supportsVectorSVGImage {
+#if SD_MAC
+    return NO;
+#else
     static dispatch_once_t onceToken;
     static BOOL supports;
     dispatch_once(&onceToken, ^{
@@ -159,6 +171,7 @@ static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
         }
     });
     return supports;
+#endif
 }
 
 + (BOOL)isSVGFormatForData:(NSData *)data {
