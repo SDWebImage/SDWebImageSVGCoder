@@ -9,8 +9,24 @@
 #import "SDSVGImage.h"
 #import "SDWebImageSVGCoderDefine.h"
 #import <SVGKit/SVGKit.h>
+#import <dlfcn.h>
 
 #define kSVGTagEnd @"</svg>"
+
+typedef struct CF_BRIDGED_TYPE(id) CGSVGDocument *CGSVGDocumentRef;
+static CGSVGDocumentRef (*CGSVGDocumentCreateFromDataProvider)(CGDataProviderRef provider, CFDictionaryRef options);
+static CGSVGDocumentRef (*CGSVGDocumentRetain)(CGSVGDocumentRef);
+static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
+
+@interface UIImage (PrivateSVGSupport)
+
+- (instancetype)_initWithCGSVGDocument:(CGSVGDocumentRef)document;
+- (instancetype)_initWithCGSVGDocument:(CGSVGDocumentRef)document scale:(double)scale orientation:(UIImageOrientation)orientation;
++ (instancetype)_imageWithCGSVGDocument:(CGSVGDocumentRef)document;
++ (instancetype)_imageWithCGSVGDocument:(CGSVGDocumentRef)document scale:(double)scale orientation:(UIImageOrientation)orientation;
+- (CGSVGDocumentRef)_CGSVGDocument;
+
+@end
 
 @implementation SDImageSVGCoder
 
@@ -23,6 +39,12 @@
     return coder;
 }
 
++ (void)initialize {
+    CGSVGDocumentCreateFromDataProvider = dlsym(RTLD_DEFAULT, "CGSVGDocumentCreateFromDataProvider");
+    CGSVGDocumentRetain = dlsym(RTLD_DEFAULT, "CGSVGDocumentRetain");
+    CGSVGDocumentRelease = dlsym(RTLD_DEFAULT, "CGSVGDocumentRelease");
+}
+
 #pragma mark - Decode
 
 - (BOOL)canDecodeFromData:(NSData *)data {
@@ -33,6 +55,32 @@
     if (!data) {
         return nil;
     }
+    
+    if ([self.class supportsVectorSVGImage]) {
+        return [self createVectorSVGWithData:data options:options];
+    } else {
+        return [self createBitmapSVGWithData:data options:options];
+    }
+}
+
+- (UIImage *)createVectorSVGWithData:(NSData *)data options:(SDImageCoderOptions *)options {
+    NSParameterAssert(data);
+    CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
+    if (!provider) {
+        return nil;
+    };
+    CGSVGDocumentRef document = CGSVGDocumentCreateFromDataProvider(provider, NULL);
+    if (!document) {
+        return nil;
+    }
+    UIImage *image = [UIImage _imageWithCGSVGDocument:document];
+    CGSVGDocumentRelease(document);
+
+    return image;
+}
+
+- (UIImage *)createBitmapSVGWithData:(NSData *)data options:(SDImageCoderOptions *)options {
+    NSParameterAssert(data);
     // Parse SVG
     SVGKImage *svgImage = [[SVGKImage alloc] initWithData:data];
     if (!svgImage) {
@@ -98,6 +146,20 @@
 }
 
 #pragma mark - Helper
+
++ (BOOL)supportsVectorSVGImage {
+    static dispatch_once_t onceToken;
+    static BOOL supports;
+    dispatch_once(&onceToken, ^{
+        // iOS 11+ supports PDF built-in rendering, use selector to check is more accurate
+        if ([UIImage respondsToSelector:@selector(_imageWithCGSVGDocument:)]) {
+            supports = YES;
+        } else {
+            supports = NO;
+        }
+    });
+    return supports;
+}
 
 + (BOOL)isSVGFormatForData:(NSData *)data {
     if (!data) {

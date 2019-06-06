@@ -23,7 +23,7 @@
     
     SDImageSVGCoder *SVGCoder = [SDImageSVGCoder sharedCoder];
     [[SDImageCodersManager sharedManager] addCoder:SVGCoder];
-    NSURL *svgURL = [NSURL URLWithString:@"https://upload.wikimedia.org/wikipedia/commons/1/14/Mahuri.svg"];
+    NSURL *svgURL = [NSURL URLWithString:@"https://upload.wikimedia.org/wikipedia/commons/6/67/Firefox_Logo%2C_2017.svg"];
     NSURL *svgURL2 = [NSURL URLWithString:@"https://upload.wikimedia.org/wikipedia/commons/2/2d/Sample_SVG_file%2C_signature.svg"];
     NSURL *svgURL3 = [NSURL URLWithString:@"https://simpleicons.org/icons/github.svg"];
     
@@ -60,10 +60,17 @@
             NSLog(@"SVGKFastImageView SVG load success");
         }
     }];
-    // For `UIImageView`, you can specify a desired SVG size instead of original SVG viewport (which may be small)
-    [imageView3 sd_setImageWithURL:svgURL3 placeholderImage:nil options:SDWebImageRetryFailed context:@{SDWebImageContextSVGImageSize : @(CGSizeMake(100, 100))} progress:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    // on iOS 13, UIImageView supports SVG vector scale. On iOS 12, this will fallback bitmap representation
+    [imageView3 sd_setImageWithURL:svgURL3 placeholderImage:nil options:SDWebImageRetryFailed context:nil progress:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (image) {
-            NSLog(@"UIImageView SVG load success");
+            NSLog(@"SVG load animation success");
+            [UIView animateWithDuration:2 animations:^{
+                imageView3.bounds = CGRectMake(0, 0, 300, 300);
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:2 animations:^{
+                    imageView3.bounds = CGRectMake(0, 0, 100, 100);
+                }];
+            }];
         }
     }];
 }
