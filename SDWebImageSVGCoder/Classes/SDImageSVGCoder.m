@@ -163,7 +163,7 @@ static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
     static dispatch_once_t onceToken;
     static BOOL supports;
     dispatch_once(&onceToken, ^{
-        // iOS 11+ supports PDF built-in rendering, use selector to check is more accurate
+        // iOS 13+ supports SVG built-in rendering, use selector to check is more accurate
         if ([UIImage respondsToSelector:@selector(_imageWithCGSVGDocument:)]) {
             supports = YES;
         } else {
