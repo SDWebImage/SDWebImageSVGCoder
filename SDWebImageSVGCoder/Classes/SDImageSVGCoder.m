@@ -77,14 +77,6 @@ static void (*CGSVGDocumentWriteToData)(CGSVGDocumentRef document, CFDataRef dat
     if (![self.class supportsVectorSVGImage]) {
         return nil;
     }
-    // Parse args
-    SDWebImageContext *context = options[SDImageCoderWebImageContext];
-    NSValue *sizeValue = context[SDWebImageContextSVGImageSize];
-    #if SD_MAC
-    CGSize imageSize = sizeValue.sizeValue;
-    #else
-    CGSize imageSize = sizeValue.CGSizeValue;
-    #endif
     
 #if SD_MAC
     Class imageRepClass = NSClassFromString(NSSVGImageRepClass);
