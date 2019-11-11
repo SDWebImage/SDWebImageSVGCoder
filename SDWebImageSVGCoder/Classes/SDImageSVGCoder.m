@@ -18,7 +18,7 @@ static CGSVGDocumentRef (*CGSVGDocumentRetain)(CGSVGDocumentRef);
 static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
 static void (*CGSVGDocumentWriteToData)(CGSVGDocumentRef document, CFDataRef data, CFDictionaryRef options);
 
-#if SD_UIKIT
+#if SD_UIKIT || SD_WATCH
 
 @interface UIImage (PrivateSVGSupport)
 
@@ -92,7 +92,7 @@ static void (*CGSVGDocumentWriteToData)(CGSVGDocumentRef document, CFDataRef dat
     if (!imageRep) {
         return nil;
     }
-    NSImage *image = [[NSImage alloc] initWithSize:imageSize];
+    NSImage *image = [[NSImage alloc] initWithSize:imageRep.size];
     [image addRepresentation:imageRep];
 #else
     CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);

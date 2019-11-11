@@ -1,2 +1,1 @@
 github "SDWebImage/SDWebImage" ~> 5.0
-github "SVGKit/SVGKit" >= 2.1

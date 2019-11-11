@@ -5,7 +5,7 @@
 //  Created by DreamPiggy on 2018/10/11.
 //
 
-#import <SDWebImage/SDWebImage.h>
+@import SDWebImage;
 
 /**
  A CGSize raw value which specify the desired SVG image size during image loading. Because vector image like SVG format, may not contains a fixed size, or you want to get a larger size bitmap representation UIImage. (NSValue)
