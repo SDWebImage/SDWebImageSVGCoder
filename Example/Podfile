@@ -1,9 +1,8 @@
 use_frameworks!
 
 target 'SDWebImageSVGCoder_Example' do
-  platform :ios, '9.3'
+  platform :ios, '13.0'
   pod 'SDWebImageSVGCoder', :path => '../'
-  pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '3.x'
 
   target 'SDWebImageSVGCoder_Tests' do
     inherit! :search_paths
@@ -13,6 +12,6 @@ target 'SDWebImageSVGCoder_Example' do
 end
 
 target 'SDWebImageSVGCoder_Example macOS' do
-  platform :osx, '10.13'
+  platform :osx, '10.15'
   pod 'SDWebImageSVGCoder', :path => '../'
 end

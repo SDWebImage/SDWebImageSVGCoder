@@ -6,10 +6,9 @@
 //
 
 #import "SDImageSVGCoder.h"
-#import "SDSVGImage.h"
 #import "SDWebImageSVGCoderDefine.h"
-#import <SVGKit/SVGKit.h>
 #import <dlfcn.h>
+#import <objc/runtime.h>
 
 #define kSVGTagEnd @"</svg>"
 
@@ -17,6 +16,7 @@ typedef struct CF_BRIDGED_TYPE(id) CGSVGDocument *CGSVGDocumentRef;
 static CGSVGDocumentRef (*CGSVGDocumentCreateFromDataProvider)(CGDataProviderRef provider, CFDictionaryRef options);
 static CGSVGDocumentRef (*CGSVGDocumentRetain)(CGSVGDocumentRef);
 static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
+static void (*CGSVGDocumentWriteToData)(CGSVGDocumentRef document, CFDataRef data, CFDictionaryRef options);
 
 #if SD_UIKIT
 
@@ -27,6 +27,20 @@ static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
 + (instancetype)_imageWithCGSVGDocument:(CGSVGDocumentRef)document;
 + (instancetype)_imageWithCGSVGDocument:(CGSVGDocumentRef)document scale:(double)scale orientation:(UIImageOrientation)orientation;
 - (CGSVGDocumentRef)_CGSVGDocument;
+
+@end
+
+#endif
+
+#if SD_MAC
+
+#define NSSVGImageRepClass @"_NSSVGImageRep"
+
+@protocol NSSVGImageRepProtocol <NSObject>
+
+- (instancetype)initWithSVGDocument:(CGSVGDocumentRef)document;
+- (instancetype)initWithData:(NSData *)data;
+- (CGSVGDocumentRef)_document;
 
 @end
 
@@ -47,6 +61,7 @@ static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
     CGSVGDocumentCreateFromDataProvider = dlsym(RTLD_DEFAULT, "CGSVGDocumentCreateFromDataProvider");
     CGSVGDocumentRetain = dlsym(RTLD_DEFAULT, "CGSVGDocumentRetain");
     CGSVGDocumentRelease = dlsym(RTLD_DEFAULT, "CGSVGDocumentRelease");
+    CGSVGDocumentWriteToData = dlsym(RTLD_DEFAULT, "CGSVGDocumentWriteToData");
 }
 
 #pragma mark - Decode
@@ -59,20 +74,27 @@ static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
     if (!data) {
         return nil;
     }
-#if SD_UIKIT
-    if ([self.class supportsVectorSVGImage]) {
-        return [self createVectorSVGWithData:data options:options];
-    } else {
-        return [self createBitmapSVGWithData:data options:options];
+    if (![self.class supportsVectorSVGImage]) {
+        return nil;
     }
+    // Parse args
+    SDWebImageContext *context = options[SDImageCoderWebImageContext];
+    NSValue *sizeValue = context[SDWebImageContextSVGImageSize];
+    #if SD_MAC
+    CGSize imageSize = sizeValue.sizeValue;
+    #else
+    CGSize imageSize = sizeValue.CGSizeValue;
+    #endif
+    
+#if SD_MAC
+    Class imageRepClass = NSClassFromString(NSSVGImageRepClass);
+    NSImageRep *imageRep = [[imageRepClass alloc] initWithData:data];
+    if (!imageRep) {
+        return nil;
+    }
+    NSImage *image = [[NSImage alloc] initWithSize:imageSize];
+    [image addRepresentation:imageRep];
 #else
-    return [self createBitmapSVGWithData:data options:options];
-#endif
-}
-
-#if SD_UIKIT
-- (UIImage *)createVectorSVGWithData:(NSData *)data options:(SDImageCoderOptions *)options {
-    NSParameterAssert(data);
     CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
     if (!provider) {
         return nil;
@@ -83,51 +105,7 @@ static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
     }
     UIImage *image = [UIImage _imageWithCGSVGDocument:document];
     CGSVGDocumentRelease(document);
-
-    return image;
-}
 #endif
-
-- (UIImage *)createBitmapSVGWithData:(NSData *)data options:(SDImageCoderOptions *)options {
-    NSParameterAssert(data);
-    // Parse SVG
-    SVGKImage *svgImage = [[SVGKImage alloc] initWithData:data];
-    if (!svgImage) {
-        return nil;
-    }
-    
-    CGSize imageSize = CGSizeZero;
-    BOOL preserveAspectRatio = YES;
-    // Parse args
-    SDWebImageContext *context = options[SDImageCoderWebImageContext];
-    if (context[SDWebImageContextSVGImageSize]) {
-        NSValue *sizeValue = context[SDWebImageContextSVGImageSize];
-#if SD_UIKIT
-        imageSize = sizeValue.CGSizeValue;
-#else
-        imageSize = sizeValue.sizeValue;
-#endif
-    }
-    if (context[SDWebImageContextSVGImagePreserveAspectRatio]) {
-        preserveAspectRatio = [context[SDWebImageContextSVGImagePreserveAspectRatio] boolValue];
-    }
-    
-    if (!CGSizeEqualToSize(imageSize, CGSizeZero)) {
-        if (preserveAspectRatio) {
-            [svgImage scaleToFitInside:imageSize];
-        } else {
-            svgImage.size = imageSize;
-        }
-    }
-    
-    UIImage *image = svgImage.UIImage;
-    if (!image) {
-        return nil;
-    }
-    
-    // SVG is vector image, so no need scale factor
-    image.sd_imageFormat = SDImageFormatSVG;
-    
     return image;
 }
 
@@ -137,41 +115,54 @@ static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
     return format == SDImageFormatSVG;
 }
 
-- (NSData *)encodedDataWithImage:(UIImage *)image format:(SDImageFormat)format options:(SDImageCoderOptions *)options {
-    // Only support SVGKImage wrapper
-    if (![image isKindOfClass:SDSVGImage.class]) {
+- (NSData *)encodedDataWithImage:(UIImage *)image format:(SDImageFormat)format options:(SDImageCoderOptions *)options {    // SVGKImage wrapper
+    if (![self.class supportsVectorSVGImage]) {
         return nil;
     }
-    SVGKImage *svgImage = ((SDSVGImage *)image).SVGImage;
-    if (!svgImage) {
+    NSMutableData *data = [NSMutableData data];
+    CGSVGDocumentRef document = NULL;
+#if SD_MAC
+    NSRect imageRect = NSMakeRect(0, 0, image.size.width, image.size.height);
+    NSImageRep *imageRep = [image bestRepresentationForRect:imageRect context:nil hints:nil];
+    if ([imageRep isKindOfClass:NSClassFromString(NSSVGImageRepClass)]) {
+        Ivar ivar = class_getInstanceVariable(imageRep.class, "_document");
+        document = (__bridge CGSVGDocumentRef)(object_getIvar(imageRep, ivar));
+    }
+#else
+    document = [image _CGSVGDocument];
+#endif
+    if (!document) {
         return nil;
     }
-    SVGKSource *source = svgImage.source;
-    // Should be NSData type source
-    if (![source isKindOfClass:SVGKSourceNSData.class]) {
-        return nil;
-    }
-    return ((SVGKSourceNSData *)source).rawData;
+    
+    CGSVGDocumentWriteToData(document, (__bridge CFDataRef)data, NULL);
+    
+    return [data copy];
 }
 
 #pragma mark - Helper
 
 + (BOOL)supportsVectorSVGImage {
-#if SD_MAC
-    return NO;
-#else
     static dispatch_once_t onceToken;
     static BOOL supports;
     dispatch_once(&onceToken, ^{
+#if SD_MAC
+        // macOS 10.15+ supports SVG built-in rendering, use selector to check is more accurate
+        if (NSClassFromString(NSSVGImageRepClass)) {
+            supports = YES;
+        } else {
+            supports = NO;
+        }
+#else
         // iOS 13+ supports SVG built-in rendering, use selector to check is more accurate
         if ([UIImage respondsToSelector:@selector(_imageWithCGSVGDocument:)]) {
             supports = YES;
         } else {
             supports = NO;
         }
+#endif
     });
     return supports;
-#endif
 }
 
 + (BOOL)isSVGFormatForData:(NSData *)data {

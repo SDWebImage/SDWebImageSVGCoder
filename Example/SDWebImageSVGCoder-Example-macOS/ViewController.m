@@ -23,10 +23,10 @@
     
     CGSize screenSize = self.view.bounds.size;
     
-    SVGKImageView *imageView1 = [[SVGKFastImageView alloc] initWithSVGKImage:nil];
+    UIImageView *imageView1 = [[UIImageView alloc] init];
     imageView1.frame = CGRectMake(0, 0, screenSize.width / 2, screenSize.height);
     
-    SVGKImageView *imageView2 = [[SVGKLayeredImageView alloc] initWithSVGKImage:nil];
+    UIImageView *imageView2 = [[UIImageView alloc] init];
     imageView2.frame = CGRectMake(screenSize.width / 2, 0, screenSize.width / 2, screenSize.height);
     
     [self.view addSubview:imageView1];
