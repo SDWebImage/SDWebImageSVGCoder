@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3212D8F7237BEF3A00F6C7DA /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32407BFC23799AC400F9AFA4 /* SDWebImage.framework */; };
 		32407BF723799A8A00F9AFA4 /* SDImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133C2170AB0F00DBD6ED /* SDImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32407BF823799A8A00F9AFA4 /* SDImageSVGCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */; };
 		32407BFB23799A9200F9AFA4 /* SDWebImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613492170AB1600DBD6ED /* SDWebImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32407BFD23799AC400F9AFA4 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32407BFC23799AC400F9AFA4 /* SDWebImage.framework */; };
-		32407BFE23799AC400F9AFA4 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 32407BFC23799AC400F9AFA4 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		328C14BE2184CEE7006B0C4A /* SDImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133C2170AB0F00DBD6ED /* SDImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		328C14BF2184CEE7006B0C4A /* SDImageSVGCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */; };
 		328C14C62184CEE8006B0C4A /* SDImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133C2170AB0F00DBD6ED /* SDImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -25,20 +24,6 @@
 		32B6134A2170AB1600DBD6ED /* SDWebImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613492170AB1600DBD6ED /* SDWebImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32B6134F2170B17200DBD6ED /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B6134E2170B17200DBD6ED /* SDWebImage.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		32407BFF23799AC400F9AFA4 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				32407BFE23799AC400F9AFA4 /* SDWebImage.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		32407BEF23799A5900F9AFA4 /* SDWebImageSVGCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32407BFD23799AC400F9AFA4 /* SDWebImage.framework in Frameworks */,
+				3212D8F7237BEF3A00F6C7DA /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +182,6 @@
 				32407BEB23799A5900F9AFA4 /* Sources */,
 				32407BEC23799A5900F9AFA4 /* Frameworks */,
 				32407BED23799A5900F9AFA4 /* Resources */,
-				32407BFF23799AC400F9AFA4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

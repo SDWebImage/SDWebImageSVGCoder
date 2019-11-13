@@ -37,7 +37,7 @@ script:
   - pod lib lint --allow-warnings
 
   - echo Build as dynamic frameworks
-  - carthage update --platform ios,tvos,macos --configuration DEBUG
+  - carthage update --configuration DEBUG
   - xcodebuild build clean -project SDWebImageSVGCoder.xcodeproj -scheme 'SDWebImageSVGCoder iOS' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
   - xcodebuild build clean -project SDWebImageSVGCoder.xcodeproj -scheme 'SDWebImageSVGCoder tvOS' -sdk appletvsimulator -configuration Debug | xcpretty -c
   - xcodebuild build clean -project SDWebImageSVGCoder.xcodeproj -scheme 'SDWebImageSVGCoder macOS' -sdk macosx -configuration Debug | xcpretty -c
