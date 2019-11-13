@@ -8,13 +8,17 @@
 
 
 ## What's for
-SDWebImageSVGCoder is a SVG coder plugin for [SDWebImage](https://github.com/rs/SDWebImage/) framework, which provide the image loading support for [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) using [SVGKit](https://github.com/SVGKit/SVGKit) SVG engine.
+SDWebImageSVGCoder is a SVG coder plugin for [SDWebImage](https://github.com/rs/SDWebImage/) framework, which provide the image loading support for [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics).
 
-## Note about SVG on iOS
+The SVG rendering is done using Apple's framework CoreSVG.framework (introduced in iOS 13/macOS 10.15).
 
-From iOS 13 and Xcode 11, Apple provide the built-in support for SVG. You can use Xcode Asset Catalog to import your SVG files the same as PDF. (Click `Keep Vector Data`)
+## Note for SVGKit user
 
-But however, the new SVG framework (`CoreSVG.framework`) is still in Private API. If you're interested in this, you can try to use [iOS13_SVG](https://github.com/SDWebImage/SDWebImageSVGCoder/tree/iOS13_SVG) branch. Which bring the built-in SVG support for `UIImageView` and vector rendering, without the relay on SVGKit.
+Previously before 1.0.0 version, this SVG Coder is powered by third party library [SVGKit](https://github.com/SVGKit/SVGKit). Which support iOS 8+(macOS 10.10+) as well.
+
+However, due to the lack support of that third party library, which contains massive issues without community's help, no clarity of version release, makes a pain for us to maintain. So, We decide to deprecate SVGKit support and move it into another repo: [SDWebImageSVGKitPlugin](https://github.com/SDWebImage/SDWebImageSVGKitPlugin).
+
+User who use SVGKit or have to support iOS 8+ can still use that SVGKit plugin instead, you can also mix these two SVG coder at the same time. But since Apple already provide a built-in framework support. We prefer to use that as well, which can reduce complicated dependency, code size, and get polished from Apple's system upgrade.
 
 ## Example
 
@@ -24,9 +28,10 @@ You can modify the code or use some other SVG files to check the compatibility.
 
 ## Requirements
 
-+ iOS 8
-+ tvOS 9
-+ macOS 10.10
++ iOS 13+
++ tvOS 13+
++ macOS 10.15+
++ watchOS 6+
 
 ## Installation
 
@@ -53,80 +58,75 @@ SDWebImageSVGCoder is available through [Carthage](https://github.com/Carthage/C
 github "SDWebImage/SDWebImageSVGCoder"
 ```
 
+#### Swift Package Manager
+
+SDWebImageSVGCoder is available through [Swift Package Manager](https://swift.org/package-manager).
+
+```swift
+let package = Package(
+    dependencies: [
+        .package(url: "https://github.com/SDWebImage/SDWebImageSVGCoder.git", from: "1.0")
+    ]
+)
+```
+
 ## Usage
 
-### Use UIImageView (render SVG as bitmap image)
+### Use UIImageView
 
-To use SVG coder, you should firstly add the `SDImageSVGCoder` to the coders manager. Then you can call the View Category method to start load SVG images.
+To use SVG coder, you should firstly add the `SDImageSVGCoder` to the coders manager. Then you can call the View Category method to start load SVG images. See [Wiki - Coder Usage](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#coder-usage) here for these steps.
 
-Because SVG is a [vector image](https://en.wikipedia.org/wiki/Vector_graphics) format, which means it does not have a fixed bitmap size. However, `UIImage` or `CGImage` are all [bitmap image](https://en.wikipedia.org/wiki/Raster_graphics). For `UIImageView`, we will only parse SVG with a fixed image size (from the SVG viewPort information). But we also support you to specify a desired size during image loading using `SVGImageSize` context option. And you can specify whether or not to keep aspect ratio during scale using `SVGImagePreserveAspectRatio` context option.
+Note SVG is a [vector image](https://en.wikipedia.org/wiki/Vector_graphics) format, and UIImageView/NSImageView support rendering vector image as well. Which means you can change the size without losing any details.
 
 + Objective-C
 
 ```objectivec
+// register coder, on AppDelegate
 SDImageSVGCoder *SVGCoder = [SDImageSVGCoder sharedCoder];
 [[SDImageCodersManager sharedManager] addCoder:SVGCoder];
+// load SVG url
 UIImageView *imageView;
-// this arg is optional, if don't provide, use the viewport size instead
-CGSize SVGImageSize = CGSizeMake(100, 100);
-[imageView sd_setImageWithURL:url placeholderImage:nil options:0 context:@{SDWebImageContextSVGImageSize : @(SVGImageSize)];
+[imageView sd_setImageWithURL:url]
+// Changing size
+CGRect rect = imageView.frame;
+rect.size.width = 200;
+rect.size.height = 200;
+imageView.frame = rect;
 ```
 
 + Swift
 
 ```swift
+// register coder, on AppDelegate
 let SVGCoder = SDImageSVGCoder.shared
 SDImageCodersManager.shared.addCoder(SVGCoder)
+// load SVG url
 let imageView: UIImageView
 imageView.sd_setImage(with: url)
-// this arg is optional, if don't provide, use the viewport size instead
-let SVGImageSize = CGSize(width: 100, height: 100)
-imageView.sd_setImage(with: url, placeholderImage: nil, options: [], context: [.svgImageSize : SVGImageSize])
+// Changing size
+var rect = imageView.frame
+rect.size.width = 200
+rect.size.height = 200
+imageView.frame = rect
 ```
 
-### Use SVGKImageView (render SVG as vector image)
-
-[SVGKit](https://github.com/SVGKit/SVGKit) also provide some built-in image view class for vector image loading (scale to any size without losing detail). The `SVGKLayeredImageView` && `SVGKFastImageView` are the subclass of `SVGKImageView` base class. We supports these image view class as well. You can just use the same API like normal `UIImageView`.
-
-For the documentation about `SVGKLayeredImageView`, `SVGKFastImageView` or `SVGKImageView`, check [SVGKit](https://github.com/SVGKit/SVGKit) repo for more information.
-
-**Note**: If you only use these image view class and don't use SVG on `UIImageView`, you don't need to register the SVG coder to coders manager. These image view loading was using the [Custom Image Class](https://github.com/rs/SDWebImage/wiki/Advanced-Usage#customization) feature of SDWebImage.
-
-**Attention**: These built-in image view class does not works well on `UIView.contentMode` property, you need to re-scale the layer tree after image was loaded. We provide a simple out-of-box solution to support it. Set the `sd_adjustContentMode` property to `YES` then all things done.
-
-+ Objective-C
-
-```objectivec
-SVGKImageView *imageView; // can be either `SVGKLayeredImageView` or `SVGKFastImageView`
-imageView.contentMode = UIViewContentModeScaleAspectFill;
-imageView.sd_adjustContentMode = YES; // make `contentMode` works
-[imageView sd_setImageWithURL:url];
-```
-
-+ Swift:
-
-```swift
-let imageView: SVGKImageView // can be either `SVGKLayeredImageView` or `SVGKFastImageView`
-imageView.contentMode = .aspectFill
-imageView.sd_adjustContentMode = true // make `contentMode` works
-imageView.sd_setImage(with: url)
-```
+Note since UIImageView/NSImageView support this vector rendering, it means this coder plugin can be compatible for [SwiftUI](https://developer.apple.com/xcode/swiftui/). Check [SDWebImageSwiftUI](https://github.com/SDWebImage/SDWebImageSwiftUI/issues/50) for usage.
 
 ## Export SVG data
 
-`SDWebImageSVGCoder` provide an easy way to export the SVG image generated from framework, to the original SVG data.
+`SDWebImageSVGCoder` provide an easy way to export the SVG image generated by this coder plugin, to the original SVG data.
 
 + Objective-C
 
 ```objectivec
-UIImage *image; // Image generated from SDWebImage framework, actually a `SDSVGImage` instance.
+UIImage *image = imageView.image; // Image generated by this coder plugin
 NSData *imageData = [image sd_imageDataAsFormat:SDImageFormatSVG];
 ```
 
 + Swift
 
 ```swift
-let image; // Image generated from SDWebImage framework, actually a `SDSVGImage` instance.
+let image = imageView.image // Image generated by this coder plugin 
 let imageData = image.sd_imageData(as: .SVG)
 ```
 
