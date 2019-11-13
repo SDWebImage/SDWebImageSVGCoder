@@ -6,7 +6,6 @@
 //
 
 #import "SDImageSVGCoder.h"
-#import "SDWebImageSVGCoderDefine.h"
 #import <dlfcn.h>
 #import <objc/runtime.h>
 
@@ -107,7 +106,10 @@ static void (*CGSVGDocumentWriteToData)(CGSVGDocumentRef document, CFDataRef dat
     return format == SDImageFormatSVG;
 }
 
-- (NSData *)encodedDataWithImage:(UIImage *)image format:(SDImageFormat)format options:(SDImageCoderOptions *)options {    // SVGKImage wrapper
+- (NSData *)encodedDataWithImage:(UIImage *)image format:(SDImageFormat)format options:(SDImageCoderOptions *)options {
+    if (!image) {
+        return nil;
+    }
     if (![self.class supportsVectorSVGImage]) {
         return nil;
     }
