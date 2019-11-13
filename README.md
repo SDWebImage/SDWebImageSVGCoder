@@ -18,7 +18,7 @@ Previously before 1.0.0 version, this SVG Coder is powered by third party librar
 
 However, due to the lack support of that third party library, which contains massive issues without community's help, no clarity of version release, makes a pain for us to maintain. So, We decide to deprecate SVGKit support and move it into another repo: [SDWebImageSVGKitPlugin](https://github.com/SDWebImage/SDWebImageSVGKitPlugin).
 
-User who use SVGKit or have to support iOS 8+ can still use that SVGKit plugin instead, you can also mix these two SVG coder at the same time. But since Apple already provide a built-in framework support. We prefer to use that as well, which can reduce complicated dependency, code size, and get polished from Apple's system upgrade.
+User who use SVGKit or have to support iOS 8+(macOS 10.10+) can still use that SDWebImageSVGKitPlugin instead. You can also mix these two SVG coders at the same time. But since Apple already provide a built-in framework support, we prefer to use that instead, which can reduce complicated dependency, code size, and get polished from Apple's system upgrade.
 
 ## Example
 
@@ -42,12 +42,6 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'SDWebImageSVGCoder'
-```
-
-Note: The [SVGKit](https://github.com/SVGKit/SVGKit) dependency seems does not follow sem-version and didn't not release versions frequently. You can manually specify a branch or CID dependency for it. Like below:
-
-```
-pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '3.x'
 ```
 
 #### Carthage
