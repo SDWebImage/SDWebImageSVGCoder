@@ -8,7 +8,6 @@
 
 #import "SDViewController.h"
 #import <SDWebImageSVGCoder/SDWebImageSVGCoder.h>
-#import <SVGKit/SVGKit.h>
 
 @interface SDViewController ()
 
@@ -23,26 +22,22 @@
     
     SDImageSVGCoder *SVGCoder = [SDImageSVGCoder sharedCoder];
     [[SDImageCodersManager sharedManager] addCoder:SVGCoder];
-    NSURL *svgURL = [NSURL URLWithString:@"https://upload.wikimedia.org/wikipedia/commons/1/14/Mahuri.svg"];
-    NSURL *svgURL2 = [NSURL URLWithString:@"https://upload.wikimedia.org/wikipedia/commons/2/2d/Sample_SVG_file%2C_signature.svg"];
+    NSURL *svgURL = [NSURL URLWithString:@"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg"];
+    NSURL *svgURL2 = [NSURL URLWithString:@"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/wikimedia.svg"];
     NSURL *svgURL3 = [NSURL URLWithString:@"https://simpleicons.org/icons/github.svg"];
     
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     
-    // `SVGKLayeredImageView`, best on performance and do actually vector image rendering (translate SVG to CALayer tree).
-    SVGKImageView *imageView1 = [[SVGKLayeredImageView alloc] initWithSVGKImage:nil];
+    UIImageView *imageView1 = [[UIImageView alloc] init];
     imageView1.frame = CGRectMake(0, 0, screenSize.width, screenSize.height / 2);
-    imageView1.sd_adjustContentMode = YES; // make `contentMode` works
-    imageView1.contentMode = UIViewContentModeScaleAspectFill;
-    imageView1.clipsToBounds = YES;
+    imageView1.contentMode = UIViewContentModeScaleAspectFit;
     
-    // `SVGKFastImageView`, draw SVG as bitmap dynamically when size changed.
-    SVGKImageView *imageView2 = [[SVGKFastImageView alloc] initWithSVGKImage:nil];
+    UIImageView *imageView2 = [[UIImageView alloc] init];
     imageView2.frame = CGRectMake(0, screenSize.height / 2, screenSize.width, screenSize.height / 2);
-    imageView2.clipsToBounds = YES;
+    imageView2.contentMode = UIViewContentModeScaleAspectFill;
     
-    // `UIImageView`, draw SVG as bitmap image with fixed size, like PNG.
     UIImageView *imageView3 = [[UIImageView alloc] initWithFrame:CGRectMake(screenSize.width - 100, screenSize.height - 100, 100, 100)];
+    imageView2.contentMode = UIViewContentModeScaleToFill;
     
     [self.view addSubview:imageView1];
     [self.view addSubview:imageView2];
@@ -60,10 +55,16 @@
             NSLog(@"SVGKFastImageView SVG load success");
         }
     }];
-    // For `UIImageView`, you can specify a desired SVG size instead of original SVG viewport (which may be small)
-    [imageView3 sd_setImageWithURL:svgURL3 placeholderImage:nil options:SDWebImageRetryFailed context:@{SDWebImageContextSVGImageSize : @(CGSizeMake(100, 100))} progress:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [imageView3 sd_setImageWithURL:svgURL3 placeholderImage:nil options:SDWebImageRetryFailed context:nil progress:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (image) {
-            NSLog(@"UIImageView SVG load success");
+            NSLog(@"SVG load animation success");
+            [UIView animateWithDuration:2 animations:^{
+                imageView3.bounds = CGRectMake(0, 0, 300, 300);
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:2 animations:^{
+                    imageView3.bounds = CGRectMake(0, 0, 100, 100);
+                }];
+            }];
         }
     }];
 }

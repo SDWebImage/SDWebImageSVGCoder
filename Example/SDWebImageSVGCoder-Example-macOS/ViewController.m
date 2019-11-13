@@ -18,28 +18,30 @@
     // Do any additional setup after loading the view.
     SDImageSVGCoder *SVGCoder = [SDImageSVGCoder sharedCoder];
     [[SDImageCodersManager sharedManager] addCoder:SVGCoder];
-    NSURL *SVGURL = [NSURL URLWithString:@"https://upload.wikimedia.org/wikipedia/commons/1/14/Mahuri.svg"];
-    NSURL *SVGURL2 = [NSURL URLWithString:@"https://upload.wikimedia.org/wikipedia/commons/6/67/Firefox_Logo%2C_2017.svg"];
+    NSURL *svgURL = [NSURL URLWithString:@"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg"];
+    NSURL *svgURL2 = [NSURL URLWithString:@"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/wikimedia.svg"];
     
     CGSize screenSize = self.view.bounds.size;
     
-    SVGKImageView *imageView1 = [[SVGKFastImageView alloc] initWithSVGKImage:nil];
+    UIImageView *imageView1 = [[UIImageView alloc] init];
     imageView1.frame = CGRectMake(0, 0, screenSize.width / 2, screenSize.height);
+    imageView1.imageScaling = NSImageScaleProportionallyUpOrDown;
     
-    SVGKImageView *imageView2 = [[SVGKLayeredImageView alloc] initWithSVGKImage:nil];
+    UIImageView *imageView2 = [[UIImageView alloc] init];
     imageView2.frame = CGRectMake(screenSize.width / 2, 0, screenSize.width / 2, screenSize.height);
+    imageView2.imageScaling = NSImageScaleProportionallyUpOrDown;
     
     [self.view addSubview:imageView1];
     [self.view addSubview:imageView2];
     
-    [imageView1 sd_setImageWithURL:SVGURL placeholderImage:nil options:SDWebImageRetryFailed completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [imageView1 sd_setImageWithURL:svgURL placeholderImage:nil options:SDWebImageRetryFailed completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (image) {
             NSLog(@"SVG load success");
             NSData *svgData = [image sd_imageDataAsFormat:SDImageFormatSVG];
             NSAssert(svgData.length > 0, @"SVG Data should exist");
         }
     }];
-    [imageView2 sd_setImageWithURL:SVGURL2 placeholderImage:nil options:SDWebImageRetryFailed context:@{SDWebImageContextSVGImageSize : @(imageView2.bounds.size)} progress:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [imageView2 sd_setImageWithURL:svgURL2 placeholderImage:nil options:SDWebImageRetryFailed completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (image) {
             NSLog(@"SVG load animation success");
             [NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {

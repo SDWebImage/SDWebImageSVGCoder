@@ -7,42 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3212D8F7237BEF3A00F6C7DA /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32407BFC23799AC400F9AFA4 /* SDWebImage.framework */; };
+		32407BF723799A8A00F9AFA4 /* SDImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133C2170AB0F00DBD6ED /* SDImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32407BF823799A8A00F9AFA4 /* SDImageSVGCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */; };
+		32407BFB23799A9200F9AFA4 /* SDWebImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613492170AB1600DBD6ED /* SDWebImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		328C14BE2184CEE7006B0C4A /* SDImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133C2170AB0F00DBD6ED /* SDImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		328C14BF2184CEE7006B0C4A /* SDImageSVGCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */; };
-		328C14C02184CEE7006B0C4A /* SDSVGImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133E2170AB0F00DBD6ED /* SDSVGImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		328C14C12184CEE7006B0C4A /* SDSVGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133A2170AB0F00DBD6ED /* SDSVGImage.m */; };
-		328C14C22184CEE7006B0C4A /* SDWebImageSVGCoderDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133B2170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		328C14C32184CEE7006B0C4A /* SDWebImageSVGCoderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133D2170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.m */; };
-		328C14C42184CEE7006B0C4A /* SVGKImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613392170AB0F00DBD6ED /* SVGKImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		328C14C52184CEE7006B0C4A /* SVGKImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133F2170AB0F00DBD6ED /* SVGKImageView+WebCache.m */; };
 		328C14C62184CEE8006B0C4A /* SDImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133C2170AB0F00DBD6ED /* SDImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		328C14C72184CEE8006B0C4A /* SDImageSVGCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */; };
-		328C14C82184CEE8006B0C4A /* SDSVGImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133E2170AB0F00DBD6ED /* SDSVGImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		328C14C92184CEE8006B0C4A /* SDSVGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133A2170AB0F00DBD6ED /* SDSVGImage.m */; };
-		328C14CA2184CEE8006B0C4A /* SDWebImageSVGCoderDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133B2170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		328C14CB2184CEE8006B0C4A /* SDWebImageSVGCoderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133D2170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.m */; };
-		328C14CC2184CEE8006B0C4A /* SVGKImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613392170AB0F00DBD6ED /* SVGKImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		328C14CD2184CEE8006B0C4A /* SVGKImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133F2170AB0F00DBD6ED /* SVGKImageView+WebCache.m */; };
 		328C14CE2184CEF3006B0C4A /* SDWebImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613492170AB1600DBD6ED /* SDWebImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		328C14CF2184CEF3006B0C4A /* SDWebImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613492170AB1600DBD6ED /* SDWebImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		328C14D52184D131006B0C4A /* SVGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 328C14D42184D131006B0C4A /* SVGKit.framework */; };
 		328C14D72184D13B006B0C4A /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 328C14D62184D13B006B0C4A /* SDWebImage.framework */; };
-		328C14D82184D148006B0C4A /* SVGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 328C14D22184D11F006B0C4A /* SVGKit.framework */; };
 		328C14D92184D151006B0C4A /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 328C14D02184D111006B0C4A /* SDWebImage.framework */; };
 		32B613402170AB0F00DBD6ED /* SDImageSVGCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */; };
-		32B613422170AB0F00DBD6ED /* SVGKImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613392170AB0F00DBD6ED /* SVGKImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32B613432170AB0F00DBD6ED /* SDSVGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133A2170AB0F00DBD6ED /* SDSVGImage.m */; };
-		32B613442170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133B2170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32B613452170AB0F00DBD6ED /* SDImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133C2170AB0F00DBD6ED /* SDImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32B613462170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133D2170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.m */; };
-		32B613472170AB0F00DBD6ED /* SDSVGImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133E2170AB0F00DBD6ED /* SDSVGImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32B613482170AB0F00DBD6ED /* SVGKImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6133F2170AB0F00DBD6ED /* SVGKImageView+WebCache.m */; };
 		32B6134A2170AB1600DBD6ED /* SDWebImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613492170AB1600DBD6ED /* SDWebImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32B6134D2170B16400DBD6ED /* SVGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B6134C2170B16400DBD6ED /* SVGKit.framework */; };
 		32B6134F2170B17200DBD6ED /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B6134E2170B17200DBD6ED /* SDWebImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32407BEF23799A5900F9AFA4 /* SDWebImageSVGCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32407BFC23799AC400F9AFA4 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/watchOS/SDWebImage.framework; sourceTree = "<group>"; };
 		328C14B62184C856006B0C4A /* SDWebImageSVGCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		328C14D02184D111006B0C4A /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/tvOS/SDWebImage.framework; sourceTree = "<group>"; };
 		328C14D22184D11F006B0C4A /* SVGKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVGKit.framework; path = Carthage/Build/tvOS/SVGKit.framework; sourceTree = "<group>"; };
@@ -51,28 +36,27 @@
 		32B613192170AA2900DBD6ED /* SDWebImageSVGCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B613242170AA9300DBD6ED /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Module/Info.plist; sourceTree = "<group>"; };
 		32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageSVGCoder.m; sourceTree = "<group>"; };
-		32B613392170AB0F00DBD6ED /* SVGKImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVGKImageView+WebCache.h"; sourceTree = "<group>"; };
-		32B6133A2170AB0F00DBD6ED /* SDSVGImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSVGImage.m; sourceTree = "<group>"; };
-		32B6133B2170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageSVGCoderDefine.h; sourceTree = "<group>"; };
 		32B6133C2170AB0F00DBD6ED /* SDImageSVGCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageSVGCoder.h; sourceTree = "<group>"; };
-		32B6133D2170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageSVGCoderDefine.m; sourceTree = "<group>"; };
-		32B6133E2170AB0F00DBD6ED /* SDSVGImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSVGImage.h; sourceTree = "<group>"; };
-		32B6133F2170AB0F00DBD6ED /* SVGKImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SVGKImageView+WebCache.m"; sourceTree = "<group>"; };
 		32B613492170AB1600DBD6ED /* SDWebImageSVGCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDWebImageSVGCoder.h; path = Module/SDWebImageSVGCoder.h; sourceTree = "<group>"; };
 		32B6134C2170B16400DBD6ED /* SVGKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVGKit.framework; path = Carthage/Build/iOS/SVGKit.framework; sourceTree = "<group>"; };
 		32B6134E2170B17200DBD6ED /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
 		32B613552170B19800DBD6ED /* SDWebImageSVGCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		32B613572170B19800DBD6ED /* SDWebImageSVGCoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDWebImageSVGCoder.h; sourceTree = "<group>"; };
-		32B613582170B19800DBD6ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		32407BEC23799A5900F9AFA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3212D8F7237BEF3A00F6C7DA /* SDWebImage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		328C14B32184C856006B0C4A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				328C14D72184D13B006B0C4A /* SDWebImage.framework in Frameworks */,
-				328C14D52184D131006B0C4A /* SVGKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +65,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				32B6134F2170B17200DBD6ED /* SDWebImage.framework in Frameworks */,
-				32B6134D2170B16400DBD6ED /* SVGKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +73,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				328C14D92184D151006B0C4A /* SDWebImage.framework in Frameworks */,
-				328C14D82184D148006B0C4A /* SVGKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				32B6131B2170AA2900DBD6ED /* SDWebImageSVGCoder */,
-				32B613562170B19800DBD6ED /* SDWebImageSVGCoder */,
 				32B6131A2170AA2900DBD6ED /* Products */,
 				32B6134B2170B16400DBD6ED /* Frameworks */,
 			);
@@ -113,6 +94,7 @@
 				32B613192170AA2900DBD6ED /* SDWebImageSVGCoder.framework */,
 				32B613552170B19800DBD6ED /* SDWebImageSVGCoder.framework */,
 				328C14B62184C856006B0C4A /* SDWebImageSVGCoder.framework */,
+				32407BEF23799A5900F9AFA4 /* SDWebImageSVGCoder.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,12 +114,6 @@
 			children = (
 				32B6133C2170AB0F00DBD6ED /* SDImageSVGCoder.h */,
 				32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */,
-				32B6133E2170AB0F00DBD6ED /* SDSVGImage.h */,
-				32B6133A2170AB0F00DBD6ED /* SDSVGImage.m */,
-				32B6133B2170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.h */,
-				32B6133D2170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.m */,
-				32B613392170AB0F00DBD6ED /* SVGKImageView+WebCache.h */,
-				32B6133F2170AB0F00DBD6ED /* SVGKImageView+WebCache.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -146,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				328C14D62184D13B006B0C4A /* SDWebImage.framework */,
+				32407BFC23799AC400F9AFA4 /* SDWebImage.framework */,
 				328C14D22184D11F006B0C4A /* SVGKit.framework */,
 				328C14D42184D131006B0C4A /* SVGKit.framework */,
 				32B6134E2170B17200DBD6ED /* SDWebImage.framework */,
@@ -155,26 +132,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		32B613562170B19800DBD6ED /* SDWebImageSVGCoder */ = {
-			isa = PBXGroup;
-			children = (
-				32B613572170B19800DBD6ED /* SDWebImageSVGCoder.h */,
-				32B613582170B19800DBD6ED /* Info.plist */,
-			);
-			path = SDWebImageSVGCoder;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		32407BEA23799A5900F9AFA4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32407BFB23799A9200F9AFA4 /* SDWebImageSVGCoder.h in Headers */,
+				32407BF723799A8A00F9AFA4 /* SDImageSVGCoder.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		328C14B12184C856006B0C4A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				328C14CC2184CEE8006B0C4A /* SVGKImageView+WebCache.h in Headers */,
-				328C14C82184CEE8006B0C4A /* SDSVGImage.h in Headers */,
 				328C14C62184CEE8006B0C4A /* SDImageSVGCoder.h in Headers */,
-				328C14CA2184CEE8006B0C4A /* SDWebImageSVGCoderDefine.h in Headers */,
 				328C14CE2184CEF3006B0C4A /* SDWebImageSVGCoder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,10 +157,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32B613472170AB0F00DBD6ED /* SDSVGImage.h in Headers */,
-				32B613442170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.h in Headers */,
 				32B613452170AB0F00DBD6ED /* SDImageSVGCoder.h in Headers */,
-				32B613422170AB0F00DBD6ED /* SVGKImageView+WebCache.h in Headers */,
 				32B6134A2170AB1600DBD6ED /* SDWebImageSVGCoder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,17 +166,32 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				328C14C22184CEE7006B0C4A /* SDWebImageSVGCoderDefine.h in Headers */,
 				328C14BE2184CEE7006B0C4A /* SDImageSVGCoder.h in Headers */,
-				328C14C42184CEE7006B0C4A /* SVGKImageView+WebCache.h in Headers */,
 				328C14CF2184CEF3006B0C4A /* SDWebImageSVGCoder.h in Headers */,
-				328C14C02184CEE7006B0C4A /* SDSVGImage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		32407BEE23799A5900F9AFA4 /* SDWebImageSVGCoder watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32407BF423799A5900F9AFA4 /* Build configuration list for PBXNativeTarget "SDWebImageSVGCoder watchOS" */;
+			buildPhases = (
+				32407BEA23799A5900F9AFA4 /* Headers */,
+				32407BEB23799A5900F9AFA4 /* Sources */,
+				32407BEC23799A5900F9AFA4 /* Frameworks */,
+				32407BED23799A5900F9AFA4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SDWebImageSVGCoder watchOS";
+			productName = "SDWebImageSVGCoder watchOS";
+			productReference = 32407BEF23799A5900F9AFA4 /* SDWebImageSVGCoder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		328C14B52184C856006B0C4A /* SDWebImageSVGCoder macOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 328C14BB2184C856006B0C4A /* Build configuration list for PBXNativeTarget "SDWebImageSVGCoder macOS" */;
@@ -269,6 +255,9 @@
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = SDWebImageSVGCoder;
 				TargetAttributes = {
+					32407BEE23799A5900F9AFA4 = {
+						CreatedOnToolsVersion = 11.2;
+					};
 					328C14B52184C856006B0C4A = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -295,11 +284,19 @@
 				32B613182170AA2900DBD6ED /* SDWebImageSVGCoder iOS */,
 				32B613542170B19800DBD6ED /* SDWebImageSVGCoder tvOS */,
 				328C14B52184C856006B0C4A /* SDWebImageSVGCoder macOS */,
+				32407BEE23799A5900F9AFA4 /* SDWebImageSVGCoder watchOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		32407BED23799A5900F9AFA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		328C14B42184C856006B0C4A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -324,14 +321,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		32407BEB23799A5900F9AFA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32407BF823799A8A00F9AFA4 /* SDImageSVGCoder.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		328C14B22184C856006B0C4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				328C14CB2184CEE8006B0C4A /* SDWebImageSVGCoderDefine.m in Sources */,
-				328C14CD2184CEE8006B0C4A /* SVGKImageView+WebCache.m in Sources */,
 				328C14C72184CEE8006B0C4A /* SDImageSVGCoder.m in Sources */,
-				328C14C92184CEE8006B0C4A /* SDSVGImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,10 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32B613462170AB0F00DBD6ED /* SDWebImageSVGCoderDefine.m in Sources */,
-				32B613482170AB0F00DBD6ED /* SVGKImageView+WebCache.m in Sources */,
 				32B613402170AB0F00DBD6ED /* SDImageSVGCoder.m in Sources */,
-				32B613432170AB0F00DBD6ED /* SDSVGImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,16 +349,71 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				328C14C32184CEE7006B0C4A /* SDWebImageSVGCoderDefine.m in Sources */,
-				328C14C52184CEE7006B0C4A /* SVGKImageView+WebCache.m in Sources */,
 				328C14BF2184CEE7006B0C4A /* SDImageSVGCoder.m in Sources */,
-				328C14C12184CEE7006B0C4A /* SDSVGImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		32407BF523799A5900F9AFA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/SDWebImageSVGCoder/Module/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.SDWebImageSVGCoder-watchOS";
+				PRODUCT_NAME = SDWebImageSVGCoder;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Debug;
+		};
+		32407BF623799A5900F9AFA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/SDWebImageSVGCoder/Module/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.SDWebImageSVGCoder-watchOS";
+				PRODUCT_NAME = SDWebImageSVGCoder;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Release;
+		};
 		328C14BC2184C856006B0C4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -382,7 +436,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.SDWebImageSVGCoder;
 				PRODUCT_NAME = SDWebImageSVGCoder;
 				SDKROOT = macosx;
@@ -412,7 +466,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.SDWebImageSVGCoder;
 				PRODUCT_NAME = SDWebImageSVGCoder;
 				SDKROOT = macosx;
@@ -553,7 +607,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SDWebImageSVGCoder/Module/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -581,7 +635,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SDWebImageSVGCoder/Module/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -619,7 +673,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Debug;
 		};
@@ -648,13 +702,22 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		32407BF423799A5900F9AFA4 /* Build configuration list for PBXNativeTarget "SDWebImageSVGCoder watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32407BF523799A5900F9AFA4 /* Debug */,
+				32407BF623799A5900F9AFA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		328C14BB2184C856006B0C4A /* Build configuration list for PBXNativeTarget "SDWebImageSVGCoder macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

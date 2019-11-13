@@ -5,7 +5,7 @@
 //  Created by DreamPiggy on 2018/9/27.
 //
 
-#import <SDWebImage/SDWebImage.h>
+@import SDWebImage;
 
 NS_ASSUME_NONNULL_BEGIN
 
