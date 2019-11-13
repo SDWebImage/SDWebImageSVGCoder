@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode10.2
+osx_image: xcode11
 
 addons:
   homebrew:
@@ -41,8 +41,9 @@ script:
   - xcodebuild build clean -project SDWebImageSVGCoder.xcodeproj -scheme 'SDWebImageSVGCoder iOS' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
   - xcodebuild build clean -project SDWebImageSVGCoder.xcodeproj -scheme 'SDWebImageSVGCoder tvOS' -sdk appletvsimulator -configuration Debug | xcpretty -c
   - xcodebuild build clean -project SDWebImageSVGCoder.xcodeproj -scheme 'SDWebImageSVGCoder macOS' -sdk macosx -configuration Debug | xcpretty -c
+  - xcodebuild build clean -project SDWebImageSVGCoder.xcodeproj -scheme 'SDWebImageSVGCoder watchOS' -sdk watchsimulator -configuration Debug | xcpretty -c
 
   - echo Build example
   - pod install --project-directory=Example
-  - xcodebuild build -workspace Example/SDWebImageSVGCoder.xcworkspace -scheme 'SDWebImageSVGCoder-Example' -sdk iphonesimulator -destination 'name=iPhone 6s' -configuration Debug | xcpretty -c
+  - xcodebuild build -workspace Example/SDWebImageSVGCoder.xcworkspace -scheme 'SDWebImageSVGCoder-Example' -sdk iphonesimulator -destination 'name=iPhone 8' -configuration Debug | xcpretty -c
   - xcodebuild build -workspace Example/SDWebImageSVGCoder.xcworkspace -scheme 'SDWebImageSVGCoder-Example macOS' -sdk macosx -configuration Debug | xcpretty -c
