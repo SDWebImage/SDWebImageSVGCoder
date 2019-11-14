@@ -10,6 +10,7 @@
 #endif
 
 #import <SDWebImageSVGCoder/SDImageSVGCoder.h>
+#import <SDWebImageSVGCoder/SDWebImageSVGCoderDefine.h>
 
 FOUNDATION_EXPORT double SDWebImageSVGCoderVersionNumber;
 FOUNDATION_EXPORT const unsigned char SDWebImageSVGCoderVersionString[];

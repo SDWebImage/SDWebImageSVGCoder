@@ -11,6 +11,14 @@
 		32407BF723799A8A00F9AFA4 /* SDImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133C2170AB0F00DBD6ED /* SDImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32407BF823799A8A00F9AFA4 /* SDImageSVGCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */; };
 		32407BFB23799A9200F9AFA4 /* SDWebImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B613492170AB1600DBD6ED /* SDWebImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32870719237D0497006DB55D /* SDWebImageSVGCoderDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 32870717237D0497006DB55D /* SDWebImageSVGCoderDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3287071A237D0497006DB55D /* SDWebImageSVGCoderDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 32870717237D0497006DB55D /* SDWebImageSVGCoderDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3287071B237D0497006DB55D /* SDWebImageSVGCoderDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 32870717237D0497006DB55D /* SDWebImageSVGCoderDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3287071C237D0497006DB55D /* SDWebImageSVGCoderDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 32870717237D0497006DB55D /* SDWebImageSVGCoderDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3287071D237D0497006DB55D /* SDWebImageSVGCoderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 32870718237D0497006DB55D /* SDWebImageSVGCoderDefine.m */; };
+		3287071E237D0497006DB55D /* SDWebImageSVGCoderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 32870718237D0497006DB55D /* SDWebImageSVGCoderDefine.m */; };
+		3287071F237D0497006DB55D /* SDWebImageSVGCoderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 32870718237D0497006DB55D /* SDWebImageSVGCoderDefine.m */; };
+		32870720237D0497006DB55D /* SDWebImageSVGCoderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 32870718237D0497006DB55D /* SDWebImageSVGCoderDefine.m */; };
 		328C14BE2184CEE7006B0C4A /* SDImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133C2170AB0F00DBD6ED /* SDImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		328C14BF2184CEE7006B0C4A /* SDImageSVGCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */; };
 		328C14C62184CEE8006B0C4A /* SDImageSVGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32B6133C2170AB0F00DBD6ED /* SDImageSVGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,6 +36,8 @@
 /* Begin PBXFileReference section */
 		32407BEF23799A5900F9AFA4 /* SDWebImageSVGCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32407BFC23799AC400F9AFA4 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/watchOS/SDWebImage.framework; sourceTree = "<group>"; };
+		32870717237D0497006DB55D /* SDWebImageSVGCoderDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDWebImageSVGCoderDefine.h; sourceTree = "<group>"; };
+		32870718237D0497006DB55D /* SDWebImageSVGCoderDefine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDWebImageSVGCoderDefine.m; sourceTree = "<group>"; };
 		328C14B62184C856006B0C4A /* SDWebImageSVGCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		328C14D02184D111006B0C4A /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/tvOS/SDWebImage.framework; sourceTree = "<group>"; };
 		328C14D22184D11F006B0C4A /* SVGKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVGKit.framework; path = Carthage/Build/tvOS/SVGKit.framework; sourceTree = "<group>"; };
@@ -114,6 +124,8 @@
 			children = (
 				32B6133C2170AB0F00DBD6ED /* SDImageSVGCoder.h */,
 				32B613372170AB0F00DBD6ED /* SDImageSVGCoder.m */,
+				32870717237D0497006DB55D /* SDWebImageSVGCoderDefine.h */,
+				32870718237D0497006DB55D /* SDWebImageSVGCoderDefine.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -141,6 +153,7 @@
 			files = (
 				32407BFB23799A9200F9AFA4 /* SDWebImageSVGCoder.h in Headers */,
 				32407BF723799A8A00F9AFA4 /* SDImageSVGCoder.h in Headers */,
+				3287071C237D0497006DB55D /* SDWebImageSVGCoderDefine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +163,7 @@
 			files = (
 				328C14C62184CEE8006B0C4A /* SDImageSVGCoder.h in Headers */,
 				328C14CE2184CEF3006B0C4A /* SDWebImageSVGCoder.h in Headers */,
+				3287071B237D0497006DB55D /* SDWebImageSVGCoderDefine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +173,7 @@
 			files = (
 				32B613452170AB0F00DBD6ED /* SDImageSVGCoder.h in Headers */,
 				32B6134A2170AB1600DBD6ED /* SDWebImageSVGCoder.h in Headers */,
+				32870719237D0497006DB55D /* SDWebImageSVGCoderDefine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +183,7 @@
 			files = (
 				328C14BE2184CEE7006B0C4A /* SDImageSVGCoder.h in Headers */,
 				328C14CF2184CEF3006B0C4A /* SDWebImageSVGCoder.h in Headers */,
+				3287071A237D0497006DB55D /* SDWebImageSVGCoderDefine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32407BF823799A8A00F9AFA4 /* SDImageSVGCoder.m in Sources */,
+				32870720237D0497006DB55D /* SDWebImageSVGCoderDefine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				328C14C72184CEE8006B0C4A /* SDImageSVGCoder.m in Sources */,
+				3287071F237D0497006DB55D /* SDWebImageSVGCoderDefine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32B613402170AB0F00DBD6ED /* SDImageSVGCoder.m in Sources */,
+				3287071D237D0497006DB55D /* SDWebImageSVGCoderDefine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				328C14BF2184CEE7006B0C4A /* SDImageSVGCoder.m in Sources */,
+				3287071E237D0497006DB55D /* SDWebImageSVGCoderDefine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

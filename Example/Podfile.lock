@@ -1,6 +1,6 @@
 PODS:
   - SDWebImage/Core (5.3.1)
-  - SDWebImageSVGCoder (0.3.0):
+  - SDWebImageSVGCoder (1.0.0):
     - SDWebImage/Core (~> 5.0)
 
 DEPENDENCIES:
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
-  SDWebImageSVGCoder: 23a0505a7d34193abf93e9c1afda1dd5c12134d4
+  SDWebImageSVGCoder: 664bfce6b8679147a9c15033b58941e124a47b9d
 
 PODFILE CHECKSUM: 84f51f25230f3de246edc2d26479a6b409c99fb1
 
