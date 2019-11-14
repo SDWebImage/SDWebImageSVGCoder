@@ -36,8 +36,9 @@
     imageView2.frame = CGRectMake(0, screenSize.height / 2, screenSize.width, screenSize.height / 2);
     imageView2.contentMode = UIViewContentModeScaleAspectFill;
     
-    UIImageView *imageView3 = [[UIImageView alloc] initWithFrame:CGRectMake(screenSize.width - 100, screenSize.height - 100, 100, 100)];
-    imageView2.contentMode = UIViewContentModeScaleToFill;
+    UIImageView *imageView3 = [[UIImageView alloc] init];
+    imageView3.frame = CGRectMake(screenSize.width - 100, screenSize.height - 100, 100, 100);
+    imageView3.contentMode = UIViewContentModeScaleToFill;
     
     [self.view addSubview:imageView1];
     [self.view addSubview:imageView2];
@@ -45,26 +46,28 @@
     
     [imageView1 sd_setImageWithURL:svgURL placeholderImage:nil options:SDWebImageRetryFailed completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (image) {
-            NSLog(@"SVGKLayeredImageView SVG load success");
+            NSLog(@"SVG load success");
             NSData *svgData = [image sd_imageDataAsFormat:SDImageFormatSVG];
             NSAssert(svgData.length > 0, @"SVG Data should exist");
         }
     }];
     [imageView2 sd_setImageWithURL:svgURL2 placeholderImage:nil options:SDWebImageRetryFailed completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (image) {
-            NSLog(@"SVGKFastImageView SVG load success");
-        }
-    }];
-    [imageView3 sd_setImageWithURL:svgURL3 placeholderImage:nil options:SDWebImageRetryFailed context:nil progress:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        if (image) {
             NSLog(@"SVG load animation success");
             [UIView animateWithDuration:2 animations:^{
-                imageView3.bounds = CGRectMake(0, 0, 300, 300);
+                imageView2.bounds = CGRectMake(0, 0, screenSize.width * 2, screenSize.height);
             } completion:^(BOOL finished) {
                 [UIView animateWithDuration:2 animations:^{
-                    imageView3.bounds = CGRectMake(0, 0, 100, 100);
+                    imageView2.bounds = CGRectMake(0, 0, screenSize.width, screenSize.height / 2);
                 }];
             }];
+        }
+    }];
+    [imageView3 sd_setImageWithURL:svgURL3 placeholderImage:nil options:SDWebImageRetryFailed context:@{SDWebImageContextSVGPrefersBitmap: @(YES), SDWebImageContextSVGImageSize: @(CGSizeMake(100, 100))} progress:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        if (image) {
+            NSLog(@"SVG bitmap load success.");
+            NSData *svgData = [image sd_imageDataAsFormat:SDImageFormatSVG];
+            NSAssert(!svgData, @"SVG Data should not exist");
         }
     }];
 }
