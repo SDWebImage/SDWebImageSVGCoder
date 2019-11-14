@@ -106,18 +106,18 @@ imageView.frame = rect
 
 Note since UIImageView/NSImageView support this vector rendering, it means this coder plugin can be compatible for [SwiftUI](https://developer.apple.com/xcode/swiftui/). Check [SDWebImageSwiftUI](https://github.com/SDWebImage/SDWebImageSwiftUI/issues/50) for usage.
 
-## Render SVG as bitmap image
+### Render SVG as bitmap image
 
 In most cases, vector SVG is preferred. But however, sometimes you may want the bitmap form of SVG, used for image processing. You can use `.svgPrefersBitmap` to provide the bitmap format as well.
 
-By default it use the SVG canvas size. You can also specify a desired size during image loading using `.svgImageSize` context option. And you can specify whether or not to keep aspect ratio during scale using `.pdfImagePreserveAspectRatio` context option.
+By default it use the SVG canvas size. You can also specify a desired size during image loading using `.svgImageSize` context option. And you can specify whether or not to keep aspect ratio during scale using `.svgImagePreserveAspectRatio` context option.
 
 + Objective-C
 
 ```objectivec
 UIImageView *imageView;
 CGSize SVGImageSize = CGSizeMake(500, 500);
-[imageView sd_setImageWithURL:url placeholderImage:nil options:0 context:@{SDWebImageContextSVGImageSize : @(SVGImageSize)];
+[imageView sd_setImageWithURL:url placeholderImage:nil options:0 context:@{SDWebImageContextSVGPrefersBitmap: @YES, SDWebImageContextSVGImageSize: @(SVGImageSize)];
 ```
 
 + Swift
@@ -125,7 +125,7 @@ CGSize SVGImageSize = CGSizeMake(500, 500);
 ```swift
 let imageView: UIImageView
 let SVGImageSize = CGSize(width: 500, height: 500)
-imageView.sd_setImage(with: url, placeholderImage: nil, options: [], context: [.SVGImageSize : SVGImageSize])
+imageView.sd_setImage(with: url, placeholderImage: nil, options: [], context: [.svgPrefersBitmap : true, .svgImageSize : SVGImageSize])
 ```
 
 ## Export SVG data
