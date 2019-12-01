@@ -26,6 +26,7 @@ static SEL SDCGSVGDocumentSEL = NULL;
 #endif
 #if SD_MAC
 static Class SDNSSVGImageRepClass = NULL;
+static Ivar SDNSSVGImageRepDocumentIvar = NULL;
 #endif
 
 static inline NSString *SDBase64DecodedString(NSString *base64String) {
@@ -60,6 +61,9 @@ static inline NSString *SDBase64DecodedString(NSString *base64String) {
 #endif
 #if SD_MAC
     SDNSSVGImageRepClass = NSClassFromString(SDBase64DecodedString(@"X05TU1ZHSW1hZ2VSZXA="));
+    if (SDNSSVGImageRepClass) {
+        SDNSSVGImageRepDocumentIvar = class_getInstanceVariable(SDNSSVGImageRepClass, SDBase64DecodedString(@"X2RvY3VtZW50").UTF8String);
+    }
 #endif
 }
 
@@ -125,12 +129,10 @@ static inline NSString *SDBase64DecodedString(NSString *base64String) {
     NSRect imageRect = NSMakeRect(0, 0, image.size.width, image.size.height);
     NSImageRep *imageRep = [image bestRepresentationForRect:imageRect context:nil hints:nil];
     if ([imageRep isKindOfClass:SDNSSVGImageRepClass]) {
-        Ivar ivar = class_getInstanceVariable(imageRep.class, SDBase64DecodedString(@"X2RvY3VtZW50").UTF8String);
-        document = (__bridge CGSVGDocumentRef)(object_getIvar(imageRep, ivar));
+        document = (__bridge CGSVGDocumentRef)(object_getIvar(imageRep, SDNSSVGImageRepDocumentIvar));
     }
 #else
-    CGSVGDocumentRef (*method)(id,SEL) = (CGSVGDocumentRef (*)(id,SEL))[image methodForSelector:SDCGSVGDocumentSEL];
-    document = method(image, SDCGSVGDocumentSEL);
+    document = ((CGSVGDocumentRef (*)(id,SEL))[image methodForSelector:SDCGSVGDocumentSEL])(image, SDCGSVGDocumentSEL);
 #endif
     if (!document) {
         return nil;
@@ -159,7 +161,7 @@ static inline NSString *SDBase64DecodedString(NSString *base64String) {
     if (!document) {
         return nil;
     }
-    image = [UIImage performSelector:SDImageWithCGSVGDocumentSEL withObject:(__bridge id)(document)];
+    image = ((UIImage *(*)(id,SEL,CGSVGDocumentRef))[UIImage.class methodForSelector:SDImageWithCGSVGDocumentSEL])(UIImage.class, SDImageWithCGSVGDocumentSEL, document);
     SDCGSVGDocumentRelease(document);
 #endif
     return image;
