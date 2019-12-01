@@ -26,7 +26,7 @@
     NSURL *svgURL2 = [NSURL URLWithString:@"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/wikimedia.svg"];
     NSURL *svgURL3 = [NSURL URLWithString:@"https://simpleicons.org/icons/github.svg"];
     
-    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    CGSize screenSize = self.view.bounds.size;
     
     UIImageView *imageView1 = [[UIImageView alloc] init];
     imageView1.frame = CGRectMake(0, 0, screenSize.width, screenSize.height / 2);
@@ -34,7 +34,7 @@
     
     UIImageView *imageView2 = [[UIImageView alloc] init];
     imageView2.frame = CGRectMake(0, screenSize.height / 2, screenSize.width, screenSize.height / 2);
-    imageView2.contentMode = UIViewContentModeScaleAspectFill;
+    imageView2.contentMode = UIViewContentModeScaleAspectFit;
     
     UIImageView *imageView3 = [[UIImageView alloc] init];
     imageView3.frame = CGRectMake(screenSize.width - 100, screenSize.height - 100, 100, 100);

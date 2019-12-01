@@ -33,6 +33,11 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'SDWebImageSVGCoder/Classes/**/*', 'SDWebImageSVGCoder/Module/SDWebImageSVGCoder.h'
   s.module_map = 'SDWebImageSVGCoder/Module/SDWebImageSVGCoder.modulemap'
+
+  s.pod_target_xcconfig = {
+    'SUPPORTS_MACCATALYST' => 'YES',
+    'DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER' => 'NO'
+  }
   
   s.dependency 'SDWebImage/Core', '~> 5.0'
 end
