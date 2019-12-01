@@ -13,40 +13,28 @@
 #define kSVGTagEnd @"</svg>"
 
 typedef struct CF_BRIDGED_TYPE(id) CGSVGDocument *CGSVGDocumentRef;
-static CGSVGDocumentRef (*CGSVGDocumentRetain)(CGSVGDocumentRef);
-static void (*CGSVGDocumentRelease)(CGSVGDocumentRef);
-static CGSVGDocumentRef (*CGSVGDocumentCreateFromData)(CFDataRef data, CFDictionaryRef options);
-static void (*CGSVGDocumentWriteToData)(CGSVGDocumentRef document, CFDataRef data, CFDictionaryRef options);
-static void (*CGContextDrawSVGDocument)(CGContextRef context, CGSVGDocumentRef document);
-static CGSize (*CGSVGDocumentGetCanvasSize)(CGSVGDocumentRef document);
+static CGSVGDocumentRef (*SDCGSVGDocumentRetain)(CGSVGDocumentRef);
+static void (*SDCGSVGDocumentRelease)(CGSVGDocumentRef);
+static CGSVGDocumentRef (*SDCGSVGDocumentCreateFromData)(CFDataRef data, CFDictionaryRef options);
+static void (*SDCGSVGDocumentWriteToData)(CGSVGDocumentRef document, CFDataRef data, CFDictionaryRef options);
+static void (*SDCGContextDrawSVGDocument)(CGContextRef context, CGSVGDocumentRef document);
+static CGSize (*SDCGSVGDocumentGetCanvasSize)(CGSVGDocumentRef document);
 
 #if SD_UIKIT || SD_WATCH
-
-@interface UIImage (PrivateSVGSupport)
-
-- (instancetype)_initWithCGSVGDocument:(CGSVGDocumentRef)document;
-- (instancetype)_initWithCGSVGDocument:(CGSVGDocumentRef)document scale:(double)scale orientation:(UIImageOrientation)orientation;
-+ (instancetype)_imageWithCGSVGDocument:(CGSVGDocumentRef)document;
-+ (instancetype)_imageWithCGSVGDocument:(CGSVGDocumentRef)document scale:(double)scale orientation:(UIImageOrientation)orientation;
-- (CGSVGDocumentRef)_CGSVGDocument;
-
-@end
-
+static SEL SDImageWithCGSVGDocumentSEL = NULL;
+static SEL SDCGSVGDocumentSEL = NULL;
 #endif
-
 #if SD_MAC
-
-#define NSSVGImageRepClass @"_NSSVGImageRep"
-#define NSSVGImageRepDocumentIvar "_document"
-
-@protocol NSSVGImageRepProtocol <NSObject>
-
-- (instancetype)initWithSVGDocument:(CGSVGDocumentRef)document;
-- (instancetype)initWithData:(NSData *)data;
-
-@end
-
+static Class SDNSSVGImageRepClass = NULL;
 #endif
+
+static inline NSString *SDBase64DecodedString(NSString *base64String) {
+    NSData *data = [[NSData alloc] initWithBase64EncodedString:base64String options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    if (!data) {
+        return nil;
+    }
+    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+}
 
 @implementation SDImageSVGCoder
 
@@ -60,12 +48,19 @@ static CGSize (*CGSVGDocumentGetCanvasSize)(CGSVGDocumentRef document);
 }
 
 + (void)initialize {
-    CGSVGDocumentRetain = dlsym(RTLD_DEFAULT, "CGSVGDocumentRetain");
-    CGSVGDocumentRelease = dlsym(RTLD_DEFAULT, "CGSVGDocumentRelease");
-    CGSVGDocumentCreateFromData = dlsym(RTLD_DEFAULT, "CGSVGDocumentCreateFromData");
-    CGSVGDocumentWriteToData = dlsym(RTLD_DEFAULT, "CGSVGDocumentWriteToData");
-    CGContextDrawSVGDocument = dlsym(RTLD_DEFAULT, "CGContextDrawSVGDocument");
-    CGSVGDocumentGetCanvasSize = dlsym(RTLD_DEFAULT, "CGSVGDocumentGetCanvasSize");
+    SDCGSVGDocumentRetain = dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dTVkdEb2N1bWVudFJldGFpbg==").UTF8String);
+    SDCGSVGDocumentRelease = dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dTVkdEb2N1bWVudFJlbGVhc2U=").UTF8String);
+    SDCGSVGDocumentCreateFromData = dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dTVkdEb2N1bWVudENyZWF0ZUZyb21EYXRh").UTF8String);
+    SDCGSVGDocumentWriteToData = dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dTVkdEb2N1bWVudFdyaXRlVG9EYXRh").UTF8String);
+    SDCGContextDrawSVGDocument = dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dDb250ZXh0RHJhd1NWR0RvY3VtZW50").UTF8String);
+    SDCGSVGDocumentGetCanvasSize = dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dTVkdEb2N1bWVudEdldENhbnZhc1NpemU=").UTF8String);
+#if SD_UIKIT
+    SDImageWithCGSVGDocumentSEL = NSSelectorFromString(SDBase64DecodedString(@"X2ltYWdlV2l0aENHU1ZHRG9jdW1lbnQ6"));
+    SDCGSVGDocumentSEL = NSSelectorFromString(SDBase64DecodedString(@"X0NHU1ZHRG9jdW1lbnQ="));
+#endif
+#if SD_MAC
+    SDNSSVGImageRepClass = NSClassFromString(SDBase64DecodedString(@"X05TU1ZHSW1hZ2VSZXA="));
+#endif
 }
 
 #pragma mark - Decode
@@ -129,18 +124,19 @@ static CGSize (*CGSVGDocumentGetCanvasSize)(CGSVGDocumentRef document);
 #if SD_MAC
     NSRect imageRect = NSMakeRect(0, 0, image.size.width, image.size.height);
     NSImageRep *imageRep = [image bestRepresentationForRect:imageRect context:nil hints:nil];
-    if ([imageRep isKindOfClass:NSClassFromString(NSSVGImageRepClass)]) {
-        Ivar ivar = class_getInstanceVariable(imageRep.class, NSSVGImageRepDocumentIvar);
+    if ([imageRep isKindOfClass:SDNSSVGImageRepClass]) {
+        Ivar ivar = class_getInstanceVariable(imageRep.class, SDBase64DecodedString(@"X2RvY3VtZW50").UTF8String);
         document = (__bridge CGSVGDocumentRef)(object_getIvar(imageRep, ivar));
     }
 #else
-    document = [image _CGSVGDocument];
+    CGSVGDocumentRef (*method)(id,SEL) = (CGSVGDocumentRef (*)(id,SEL))[image methodForSelector:SDCGSVGDocumentSEL];
+    document = method(image, SDCGSVGDocumentSEL);
 #endif
     if (!document) {
         return nil;
     }
     
-    CGSVGDocumentWriteToData(document, (__bridge CFDataRef)data, NULL);
+    SDCGSVGDocumentWriteToData(document, (__bridge CFDataRef)data, NULL);
     
     return [data copy];
 }
@@ -151,7 +147,7 @@ static CGSize (*CGSVGDocumentGetCanvasSize)(CGSVGDocumentRef document);
     UIImage *image;
     
 #if SD_MAC
-    Class imageRepClass = NSClassFromString(NSSVGImageRepClass);
+    Class imageRepClass = SDNSSVGImageRepClass;
     NSImageRep *imageRep = [[imageRepClass alloc] initWithData:data];
     if (!imageRep) {
         return nil;
@@ -159,12 +155,12 @@ static CGSize (*CGSVGDocumentGetCanvasSize)(CGSVGDocumentRef document);
     image = [[NSImage alloc] initWithSize:imageRep.size];
     [image addRepresentation:imageRep];
 #else
-    CGSVGDocumentRef document = CGSVGDocumentCreateFromData((__bridge CFDataRef)data, NULL);
+    CGSVGDocumentRef document = SDCGSVGDocumentCreateFromData((__bridge CFDataRef)data, NULL);
     if (!document) {
         return nil;
     }
-    image = [UIImage _imageWithCGSVGDocument:document];
-    CGSVGDocumentRelease(document);
+    image = [UIImage performSelector:SDImageWithCGSVGDocumentSEL withObject:(__bridge id)(document)];
+    SDCGSVGDocumentRelease(document);
 #endif
     return image;
 }
@@ -174,12 +170,12 @@ static CGSize (*CGSVGDocumentGetCanvasSize)(CGSVGDocumentRef document);
     NSParameterAssert(data);
     UIImage *image;
     
-    CGSVGDocumentRef document = CGSVGDocumentCreateFromData((__bridge CFDataRef)data, NULL);
+    CGSVGDocumentRef document = SDCGSVGDocumentCreateFromData((__bridge CFDataRef)data, NULL);
     if (!document) {
         return nil;
     }
     
-    CGSize size = CGSVGDocumentGetCanvasSize(document);
+    CGSize size = SDCGSVGDocumentGetCanvasSize(document);
     if (CGSizeEqualToSize(targetSize, CGSizeZero)) {
         targetSize = size;
     }
@@ -205,12 +201,12 @@ static CGSize (*CGSVGDocumentGetCanvasSize)(CGSVGDocumentRef document);
     CGContextConcatCTM(context, translationTransform);
     CGContextConcatCTM(context, scaleTransform);
     
-    CGContextDrawSVGDocument(context, document);
+    SDCGContextDrawSVGDocument(context, document);
     
     image = SDGraphicsGetImageFromCurrentImageContext();
     SDGraphicsEndImageContext();
     
-    CGSVGDocumentRelease(document);
+    SDCGSVGDocumentRelease(document);
     
     return image;
 }
@@ -223,14 +219,14 @@ static CGSize (*CGSVGDocumentGetCanvasSize)(CGSVGDocumentRef document);
     dispatch_once(&onceToken, ^{
 #if SD_MAC
         // macOS 10.15+ supports SVG built-in rendering, use selector to check is more accurate
-        if (NSClassFromString(NSSVGImageRepClass)) {
+        if (SDNSSVGImageRepClass) {
             supports = YES;
         } else {
             supports = NO;
         }
 #else
         // iOS 13+ supports SVG built-in rendering, use selector to check is more accurate
-        if ([UIImage respondsToSelector:@selector(_imageWithCGSVGDocument:)]) {
+        if ([UIImage respondsToSelector:SDImageWithCGSVGDocumentSEL]) {
             supports = YES;
         } else {
             supports = NO;
