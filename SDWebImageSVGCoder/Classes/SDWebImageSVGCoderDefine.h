@@ -5,7 +5,11 @@
 //  Created by DreamPiggy on 2018/10/11.
 //
 
+#if __has_include(<SDWebImage/SDWebImage.h>)
+#import <SDWebImage/SDWebImage.h>
+#else
 @import SDWebImage;
+#endif
 
 /**
  A BOOL value which specify whether we prefer the actual bitmap representation instead of vector representation for SVG image. This is because the UIImage on iOS 13+ (NSImage on macOS 10.15+) can use the vector image format, which support dynamic scale without losing any detail. However, for some image processing logic, user may need the actual bitmap representation to manage pixels. (NSNumber)
