@@ -81,22 +81,36 @@ static inline NSString *SDBase64DecodedString(NSString *base64String) {
     BOOL prefersBitmap = NO;
     CGSize imageSize = CGSizeZero;
     BOOL preserveAspectRatio = YES;
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     // Parse args
     SDWebImageContext *context = options[SDImageCoderWebImageContext];
-    if (context[SDWebImageContextSVGPrefersBitmap]) {
-        prefersBitmap = [context[SDWebImageContextSVGPrefersBitmap] boolValue];
-    }
     if (context[SDWebImageContextSVGImageSize]) {
+        prefersBitmap = YES;
         NSValue *sizeValue = context[SDWebImageContextSVGImageSize];
 #if SD_MAC
         imageSize = sizeValue.sizeValue;
 #else
         imageSize = sizeValue.CGSizeValue;
 #endif
+    } else if (options[SDImageCoderDecodeThumbnailPixelSize]) {
+        prefersBitmap = YES;
+        NSValue *sizeValue = options[SDImageCoderDecodeThumbnailPixelSize];
+#if SD_MAC
+        imageSize = sizeValue.sizeValue;
+#else
+        imageSize = sizeValue.CGSizeValue;
+#endif
+    } else if (context[SDWebImageContextSVGPrefersBitmap]) {
+        prefersBitmap = [context[SDWebImageContextSVGPrefersBitmap] boolValue];
     }
     if (context[SDWebImageContextSVGImagePreserveAspectRatio]) {
         preserveAspectRatio = [context[SDWebImageContextSVGImagePreserveAspectRatio] boolValue];
+    } else if (options[SDImageCoderDecodePreserveAspectRatio]) {
+        preserveAspectRatio = [context[SDImageCoderDecodePreserveAspectRatio] boolValue];
     }
+#pragma clang diagnostic pop
     
     UIImage *image;
     if (!prefersBitmap && [self.class supportsVectorSVGImage]) {

@@ -31,10 +31,12 @@
     UIImageView *imageView1 = [[UIImageView alloc] init];
     imageView1.frame = CGRectMake(0, 0, screenSize.width, screenSize.height / 2);
     imageView1.contentMode = UIViewContentModeScaleAspectFit;
+    imageView1.clipsToBounds = YES;
     
     UIImageView *imageView2 = [[UIImageView alloc] init];
     imageView2.frame = CGRectMake(0, screenSize.height / 2, screenSize.width, screenSize.height / 2);
     imageView2.contentMode = UIViewContentModeScaleAspectFit;
+    imageView2.clipsToBounds = YES;
     
     UIImageView *imageView3 = [[UIImageView alloc] init];
     imageView3.frame = CGRectMake(screenSize.width - 100, screenSize.height - 100, 100, 100);
