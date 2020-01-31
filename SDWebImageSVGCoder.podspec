@@ -39,5 +39,5 @@ TODO: Add long description of the pod here.
     'DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER' => 'NO'
   }
   
-  s.dependency 'SDWebImage/Core', '~> 5.0'
+  s.dependency 'SDWebImage/Core', '~> 5.5'
 end
