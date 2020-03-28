@@ -20,6 +20,18 @@ However, due to the lack support of that third party library, which contains mas
 
 User who use SVGKit or have to support iOS 8+(macOS 10.10+) can still use that SDWebImageSVGKitPlugin instead. You can also mix these two SVG coders at the same time. But since Apple already provide a built-in framework support, we prefer to use that instead, which can reduce complicated dependency, code size, and get polished from Apple's system upgrade.
 
+## Note for CoreSVG framework
+
+So far (Xcode 11.4 && iOS 13.4), the CoreSVG.framework is still in private framework. I've already send the feedback radar to ask for the public for this framework. If you want, please help us as well to fire radars as well: https://feedbackassistant.apple.com/
+
+The CoreSVG.framework API is stable and match the same concept as CoreGraphics's PDF API, so it's no reason to keep private. And we've already submitted Apps which use the CoreSVG to render the vector images on App Store.
+
+All the SPI access here we use the runtime access and early check, even if future OS upgrade break the function, this framework will not crash your App and just load failed. I'll keep update to the latest changes for each firmware update.
+
+If you still worry about the SPI usage, you can use [SDWebImageSVGKitPlugin](https://github.com/SDWebImage/SDWebImageSVGKitPlugin). But we may not response to any parser or rendering issue related to [SVGKit](https://github.com/SVGKit/SVGKit), because it's already no longer maintained.
+
+There is also another solution: [SVG-Native](https://w3c.github.io/svgwg/specs/svg-native/index.html), a new W3C standard from Adobe, which is a subset of SVG/1.1. Both Apple/Google/Microsoft already join the agreement for this standard, you can try to write your own coder with the [code from SVG-native-viewer](https://github.com/adobe/svg-native-viewer/blob/master/svgnative/example/testCocoaCG/SVGNSView.mm) and adopt SVG-native for vector images.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -154,6 +166,13 @@ if svgImage.sd_isVector { // This API available in SDWebImage 5.6.0
 }
 ```
 
+## Compatibility for CoreSVG framework
+
+1. The CSS `color` does not support hex syntax. Use `rgb` or `rgba` instead
+    ```html
+    <path  d="M399.8,68.2c77.3,3.1,160.6,32.1" fill=rgb(255,255,255) />
+    ```
+
 ## Backward Deployment
 
 This framework supports backward deployment on iOS 12-/macOS 10.14-. And you can combine both `SDWebImageSVGCoder` for higher firmware version, use `SDWebImageSVGKitPlugin` for lower firmware version.
@@ -170,7 +189,7 @@ Pay attention, you should always use the runtime version check to ensure those s
 if (@available(iOS 13, *)) {
     [SDImageCodersManager.sharedCoder addCoder:SDImageSVGCoder.sharedCoder];
 } else {
-    [SDImageCodersManager.sharedCoder addCoder:SDImageSVGKitCoder.sharedCoder];
+    [SDImageCodersManager.sharedCoder addCoder:SDImageSVGKCoder.sharedCoder];
 }
 ```
 
