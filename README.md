@@ -168,10 +168,19 @@ if svgImage.sd_isVector { // This API available in SDWebImage 5.6.0
 
 ## Compatibility for CoreSVG framework
 
-1. The CSS `opacity` can not been applied for `path`, like this:
-    ```html
-    <path  d="M399.8,68.2c77.3,3.1,160.6,32.1" opacity="0.5" />
-    ```
+#### The CSS `opacity` can not been applied for `path` which contains `fill` color
+
++ Example
+
+```html
+<path d="M399.8,68.2c77.3,3.1,160.6,32.1" opacity="0.15" fill="rgb(29,36,60)" />
+```
+
++ Workaround: Use CSS `rgba` to set the opacity instead.
+
+```html
+<path d="M399.8,68.2c77.3,3.1,160.6,32.1" fill="rgba(29,36,60,0.15)" />
+```
 
 ## Backward Deployment
 
