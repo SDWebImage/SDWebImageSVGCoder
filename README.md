@@ -168,9 +168,9 @@ if svgImage.sd_isVector { // This API available in SDWebImage 5.6.0
 
 ## Compatibility for CoreSVG framework
 
-1. The CSS `color` does not support hex syntax. Use `rgb` or `rgba` instead
+1. The CSS `opacity` can not been applied for `path`, like this:
     ```html
-    <path  d="M399.8,68.2c77.3,3.1,160.6,32.1" fill="rgb(255,255,255)" />
+    <path  d="M399.8,68.2c77.3,3.1,160.6,32.1" opacity="0.5" />
     ```
 
 ## Backward Deployment
