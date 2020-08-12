@@ -192,30 +192,35 @@ static inline NSString *SDBase64DecodedString(NSString *base64String) {
     }
     
     CGSize size = SDCGSVGDocumentGetCanvasSize(document);
-    if (CGSizeEqualToSize(targetSize, CGSizeZero)) {
-        targetSize = size;
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    CGRect targetRect = rect;
+    if (!CGSizeEqualToSize(targetSize, CGSizeZero)) {
+        targetRect = CGRectMake(0, 0, targetSize.width, targetSize.height);
     }
     
-    CGFloat xRatio = targetSize.width / size.width;
-    CGFloat yRatio = targetSize.height / size.height;
+    CGFloat xRatio = targetRect.size.width / rect.size.width;
+    CGFloat yRatio = targetRect.size.height / rect.size.height;
     CGFloat xScale = preserveAspectRatio ? MIN(xRatio, yRatio) : xRatio;
     CGFloat yScale = preserveAspectRatio ? MIN(xRatio, yRatio) : yRatio;
     
     CGAffineTransform scaleTransform = CGAffineTransformMakeScale(xScale, yScale);
-    CGSize scaledSize = CGSizeApplyAffineTransform(size, scaleTransform);
-    CGAffineTransform translationTransform = CGAffineTransformMakeTranslation(targetSize.width / 2 - scaledSize.width / 2, targetSize.height / 2 - scaledSize.height / 2);
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    if (preserveAspectRatio) {
+        // Calculate the offset
+        transform = CGAffineTransformMakeTranslation((targetRect.size.width / xScale - rect.size.width) / 2, (targetRect.size.height / yScale - rect.size.height) / 2);
+    }
     
-    SDGraphicsBeginImageContextWithOptions(targetSize, NO, 0);
+    SDGraphicsBeginImageContextWithOptions(targetRect.size, NO, 0);
     CGContextRef context = SDGraphicsGetCurrentContext();
     
 #if SD_UIKIT || SD_WATCH
     // Core Graphics coordinate system use the bottom-left, UIkit use the flipped one
-    CGContextTranslateCTM(context, 0, targetSize.height);
+    CGContextTranslateCTM(context, 0, targetRect.size.height);
     CGContextScaleCTM(context, 1, -1);
 #endif
     
-    CGContextConcatCTM(context, translationTransform);
     CGContextConcatCTM(context, scaleTransform);
+    CGContextConcatCTM(context, transform);
     
     SDCGContextDrawSVGDocument(context, document);
     
