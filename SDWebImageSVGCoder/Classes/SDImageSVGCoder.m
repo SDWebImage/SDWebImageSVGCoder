@@ -261,15 +261,8 @@ static inline NSString *SDBase64DecodedString(NSString *base64String) {
     if (!data) {
         return NO;
     }
-    if (data.length <= 100) {
-        return NO;
-    }
-    // Check end with SVG tag
-    NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(data.length - 100, 100)] encoding:NSASCIIStringEncoding];
-    if (![testString containsString:kSVGTagEnd]) {
-        return NO;
-    }
-    return YES;
+
+    return [data rangeOfData:[kSVGTagEnd dataUsingEncoding:NSUTF8StringEncoding] options:NSDataSearchBackwards range: NSMakeRange(data.length - MIN(100, data.length), MIN(100, data.length))].location != NSNotFound;
 }
 
 @end
