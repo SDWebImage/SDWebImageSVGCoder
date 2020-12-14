@@ -200,6 +200,18 @@ static inline NSString *SDBase64DecodedString(NSString *base64String) {
     
     CGFloat xRatio = targetRect.size.width / rect.size.width;
     CGFloat yRatio = targetRect.size.height / rect.size.height;
+
+    // If we specify only one length of the size (width or height) we want to keep the ratio for that length
+    if (preserveAspectRatio) {
+        if (xRatio <= 0) {
+            xRatio = yRatio;
+            targetRect.size = CGSizeMake(rect.size.width * xRatio, targetSize.height);
+        } else if (yRatio <= 0) {
+            yRatio = xRatio;
+            targetRect.size = CGSizeMake(targetSize.width, rect.size.height * yRatio);
+        }
+    }
+
     CGFloat xScale = preserveAspectRatio ? MIN(xRatio, yRatio) : xRatio;
     CGFloat yScale = preserveAspectRatio ? MIN(xRatio, yRatio) : yRatio;
     
