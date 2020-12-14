@@ -124,6 +124,19 @@ In most cases, vector SVG is preferred. But however, sometimes you may want the 
 
 By default it use the SVG viewBox size. You can also specify a desired size during image loading using `.imageThumbnailPixelSize` context option. And you can specify whether or not to keep aspect ratio during scale using `.imagePreserveAspectRatio` context option.
 
+Note: When using `imageThumbnailPixelSize`, pass 0 for width or height will remove the limit of this length. For example, given a SVG image which original size is `(40,50)`:
+
+| preserve aspect ratio | width | height | effect |
+| --- | --- | --- | --- |
+| true | 50 | 50 | (40,50) |
+| true | 0 | 100 | (80,100) |
+| true | 20 | 0 | (20,25) |
+| true | 0 | 0 | (40,50) |
+| false | 50 | 50 | (50,50) |
+| false | 0 | 100 | (40,100) |
+| false | 20 | 0 | (20,50) |
+| false | 0 | 0 | (40,50) |
+
 Note: Once you pass the `imageThumbnailPixelSize`, we will always generate the bitmap representation. If you do want the vector format, do not pass them, let `UIImageView` to dynamically stretch the SVG.
 
 + Objective-C
