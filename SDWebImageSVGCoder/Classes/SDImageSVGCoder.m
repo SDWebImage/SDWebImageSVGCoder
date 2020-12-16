@@ -214,14 +214,16 @@ static inline NSString *SDBase64DecodedString(NSString *base64String) {
             if (targetSize.width <= 0) {
                 yScale = yRatio;
                 xScale = yRatio;
-                targetSize.width = size.width * yRatio;
+                targetSize.width = size.width * xScale;
             } else if (targetSize.height <= 0) {
                 xScale = xRatio;
                 yScale = xRatio;
-                targetSize.height = size.height * xRatio;
+                targetSize.height = size.height * yScale;
             } else {
                 xScale = MIN(xRatio, yRatio);
                 yScale = MIN(xRatio, yRatio);
+                targetSize.width = size.width * xScale;
+                targetSize.height = size.height * yScale;
             }
         } else {
             // If we specify only one length of the size but don't keep the ratio, use original size
