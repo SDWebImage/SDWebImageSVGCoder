@@ -118,9 +118,11 @@ imageView.frame = rect
 
 Note since UIImageView/NSImageView support this vector rendering, it means this coder plugin can be compatible for [SwiftUI](https://developer.apple.com/xcode/swiftui/). Check [SDWebImageSwiftUI](https://github.com/SDWebImage/SDWebImageSwiftUI/issues/50) for usage.
 
+Note: for watchOS, which does not support UIKit, so you can not use vector image format. (including both SVG and PDF)
+
 ### Render SVG as bitmap image
 
-In most cases, vector SVG is preferred. But however, sometimes you may want the bitmap form of SVG, used for image processing.
+In most cases, vector SVG is preferred. But however, sometimes you may want the bitmap form of SVG, used for image processing or watchOS.
 
 By default it use the SVG viewBox size. You can also specify a desired size during image loading using `.imageThumbnailPixelSize` context option. And you can specify whether or not to keep aspect ratio during scale using `.imagePreserveAspectRatio` context option.
 
