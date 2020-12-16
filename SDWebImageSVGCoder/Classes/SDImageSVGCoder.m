@@ -192,28 +192,55 @@ static inline NSString *SDBase64DecodedString(NSString *base64String) {
     }
     
     CGSize size = SDCGSVGDocumentGetCanvasSize(document);
-    CGRect rect = CGRectMake(0, 0, size.width, size.height);
-    CGRect targetRect = rect;
-    if (!CGSizeEqualToSize(targetSize, CGSizeZero)) {
-        targetRect = CGRectMake(0, 0, targetSize.width, targetSize.height);
+    // Invalid size
+    if (size.width == 0 || size.height == 0) {
+        return nil;
     }
     
-    CGFloat xRatio = targetRect.size.width / rect.size.width;
-    CGFloat yRatio = targetRect.size.height / rect.size.height;
-
-    // If we specify only one length of the size (width or height) we want to keep the ratio for that length
-    if (preserveAspectRatio) {
-        if (xRatio <= 0) {
-            xRatio = yRatio;
-            targetRect.size = CGSizeMake(rect.size.width * xRatio, targetSize.height);
-        } else if (yRatio <= 0) {
-            yRatio = xRatio;
-            targetRect.size = CGSizeMake(targetSize.width, rect.size.height * yRatio);
+    CGFloat xScale;
+    CGFloat yScale;
+    // Calculation for actual target size, see rules in documentation
+    if (targetSize.width <= 0 && targetSize.height <= 0) {
+        // Both width and height is 0, use original size
+        targetSize.width = size.width;
+        targetSize.height = size.height;
+        xScale = 1;
+        yScale = 1;
+    } else {
+        CGFloat xRatio = targetSize.width / size.width;
+        CGFloat yRatio = targetSize.height / size.height;
+        if (preserveAspectRatio) {
+            // If we specify only one length of the size (width or height) we want to keep the ratio for that length
+            if (targetSize.width <= 0) {
+                yScale = yRatio;
+                xScale = yRatio;
+                targetSize.width = size.width * yRatio;
+            } else if (targetSize.height <= 0) {
+                xScale = xRatio;
+                yScale = xRatio;
+                targetSize.height = size.height * xRatio;
+            } else {
+                xScale = MIN(xRatio, yRatio);
+                yScale = MIN(xRatio, yRatio);
+            }
+        } else {
+            // If we specify only one length of the size but don't keep the ratio, use original size
+            if (targetSize.width <= 0) {
+                targetSize.width = size.width;
+                yScale = yRatio;
+                xScale = 1;
+            } else if (targetSize.height <= 0) {
+                xScale = xRatio;
+                yScale = 1;
+                targetSize.height = size.height;
+            } else {
+                xScale = xRatio;
+                yScale = yRatio;
+            }
         }
     }
-
-    CGFloat xScale = preserveAspectRatio ? MIN(xRatio, yRatio) : xRatio;
-    CGFloat yScale = preserveAspectRatio ? MIN(xRatio, yRatio) : yRatio;
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    CGRect targetRect = CGRectMake(0, 0, targetSize.width, targetSize.height);
     
     CGAffineTransform scaleTransform = CGAffineTransformMakeScale(xScale, yScale);
     CGAffineTransform transform = CGAffineTransformIdentity;
