@@ -108,7 +108,7 @@ static inline NSString *SDBase64DecodedString(NSString *base64String) {
     if (context[SDWebImageContextSVGImagePreserveAspectRatio]) {
         preserveAspectRatio = [context[SDWebImageContextSVGImagePreserveAspectRatio] boolValue];
     } else if (options[SDImageCoderDecodePreserveAspectRatio]) {
-        preserveAspectRatio = [context[SDImageCoderDecodePreserveAspectRatio] boolValue];
+        preserveAspectRatio = [options[SDImageCoderDecodePreserveAspectRatio] boolValue];
     }
 #pragma clang diagnostic pop
     
