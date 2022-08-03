@@ -7,6 +7,16 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/SDWebImage/SDWebImageSVGCoder)
 
 
+## Background
+
+Currently SDWebImage org provide 3 kinds of SVG Coder Plugin support, here is comparison:
+
+| Plugin Name| Vector Image | Bitmap Image | Platform | Compatibility | Dependency |
+|---|---|---|---|---|---|
+| [SVGNativeCoder](https://github.com/SDWebImage/SDWebImageSVGNativeCoder) | NO | YES | iOS 9+ | Best and W3C standard | adobe/svg-native-viewer |
+| [SVGCoder](https://github.com/SDWebImage/SDWebImageSVGCoder) | YES | YES | iOS 13+ | OK but buggy on some SVG | Apple CoreSVG(Private) |
+| [SVGKitPlugin](https://github.com/SDWebImage/SDWebImageSVGKitPlugin) | YES | NO | iOS 9+ | Worst, no longer maintain | SVGKit/SVGKit    
+
 ## What's for
 SDWebImageSVGCoder is a SVG coder plugin for [SDWebImage](https://github.com/rs/SDWebImage/) framework, which provide the image loading support for [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics).
 
