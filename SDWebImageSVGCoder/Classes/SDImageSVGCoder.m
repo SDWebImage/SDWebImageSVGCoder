@@ -49,12 +49,12 @@ static inline NSString *SDBase64DecodedString(NSString *base64String) {
 }
 
 + (void)initialize {
-    SDCGSVGDocumentRetain = dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dTVkdEb2N1bWVudFJldGFpbg==").UTF8String);
-    SDCGSVGDocumentRelease = dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dTVkdEb2N1bWVudFJlbGVhc2U=").UTF8String);
-    SDCGSVGDocumentCreateFromData = dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dTVkdEb2N1bWVudENyZWF0ZUZyb21EYXRh").UTF8String);
-    SDCGSVGDocumentWriteToData = dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dTVkdEb2N1bWVudFdyaXRlVG9EYXRh").UTF8String);
-    SDCGContextDrawSVGDocument = dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dDb250ZXh0RHJhd1NWR0RvY3VtZW50").UTF8String);
-    SDCGSVGDocumentGetCanvasSize = dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dTVkdEb2N1bWVudEdldENhbnZhc1NpemU=").UTF8String);
+    SDCGSVGDocumentRetain = (CGSVGDocumentRef (*)(CGSVGDocumentRef))dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dTVkdEb2N1bWVudFJldGFpbg==").UTF8String);
+    SDCGSVGDocumentRelease = (void (*)(CGSVGDocumentRef))dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dTVkdEb2N1bWVudFJlbGVhc2U=").UTF8String);
+    SDCGSVGDocumentCreateFromData = (CGSVGDocumentRef (*)(CFDataRef data, CFDictionaryRef options))dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dTVkdEb2N1bWVudENyZWF0ZUZyb21EYXRh").UTF8String);
+    SDCGSVGDocumentWriteToData = (void (*)(CGSVGDocumentRef document, CFDataRef data, CFDictionaryRef options))dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dTVkdEb2N1bWVudFdyaXRlVG9EYXRh").UTF8String);
+    SDCGContextDrawSVGDocument = (void (*)(CGContextRef context, CGSVGDocumentRef document))dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dDb250ZXh0RHJhd1NWR0RvY3VtZW50").UTF8String);
+    SDCGSVGDocumentGetCanvasSize = (CGSize (*)(CGSVGDocumentRef document))dlsym(RTLD_DEFAULT, SDBase64DecodedString(@"Q0dTVkdEb2N1bWVudEdldENhbnZhc1NpemU=").UTF8String);
 #if SD_UIKIT || SD_WATCH
     SDImageWithCGSVGDocumentSEL = NSSelectorFromString(SDBase64DecodedString(@"X2ltYWdlV2l0aENHU1ZHRG9jdW1lbnQ6"));
     SDCGSVGDocumentSEL = NSSelectorFromString(SDBase64DecodedString(@"X0NHU1ZHRG9jdW1lbnQ="));
@@ -152,7 +152,15 @@ static inline NSString *SDBase64DecodedString(NSString *base64String) {
         return nil;
     }
     
-    SDCGSVGDocumentWriteToData(document, (__bridge CFDataRef)data, NULL);
+    @try {
+        // WARNING! Some CoreSVG exceptions can be catched, but not always
+        // If you finally crash here (un-catchable), you can only workaround (or hope Apple fix this)
+        // Do not encode vector UIImage into NSData, query `SDImageCache` for the same key and get back SVG Data
+        SDCGSVGDocumentWriteToData(document, (__bridge CFMutableDataRef)data, NULL);
+    } @catch (...) {
+        // CoreSVG export failed
+        return nil;
+    }
     
     return [data copy];
 }
@@ -178,6 +186,23 @@ static inline NSString *SDBase64DecodedString(NSString *base64String) {
     image = ((UIImage *(*)(id,SEL,CGSVGDocumentRef))[UIImage.class methodForSelector:SDImageWithCGSVGDocumentSEL])(UIImage.class, SDImageWithCGSVGDocumentSEL, document);
     SDCGSVGDocumentRelease(document);
 #endif
+    
+    // CoreSVG has compatible for some SVG/1.1 format (like Font issue) and may crash when rendering on screen (not here, Core Animation commit time)
+    // So, we snapshot a 1x1 pixel image and try catch here to check :(
+    
+    SDGraphicsImageRenderer *renderer = [[SDGraphicsImageRenderer alloc] initWithSize:CGSizeMake(1, 1)];
+    @try {
+        __unused UIImage *dummyImage = [renderer imageWithActions:^(CGContextRef  _Nonnull context) {
+            // WARNING! Some CoreSVG exceptions can be catched, but not always
+            // If you finally crash here (un-catchable), you can only workaround (or hope Apple fix this)
+            // Change your code to use `SDWebImageContextImageThumbnailPixelSize` context option with enough size to render bitmap SVG instead
+            [image drawInRect:CGRectMake(0, 0, 1, 1)];
+        }];
+    } @catch (...) {
+        // CoreSVG decode failed
+        return nil;
+    }
+    
     return image;
 }
 

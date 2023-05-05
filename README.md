@@ -42,6 +42,8 @@ If you still worry about the SPI usage, you can use [SDWebImageSVGKitPlugin](htt
 
 There is also another solution: [SVG-Native](https://w3c.github.io/svgwg/specs/svg-native/index.html), a new W3C standard from Adobe, which is a subset of SVG/1.1. Both Apple/Google/Microsoft already join the agreement for this standard, you can try to write your own coder using code from [SVG-native-viewer](https://github.com/adobe/svg-native-viewer/blob/master/svgnative/example/testCocoaCG/SVGNSView.mm) and adopt SVG-native for vector images.
 
+> Warning: Some user report that Apple's CoreSVG has compatible issue for some SVGs (like using non-system Font, gradient), from v1.7.0 we protect some cases, but other exceptions are un-catchable. For these crashes, either use `Render SVG as bitmap image` (see below) or edit your SVG source file to make Apple's CoeSVG compatible.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

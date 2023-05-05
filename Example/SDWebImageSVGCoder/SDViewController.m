@@ -25,6 +25,11 @@
     NSURL *svgURL = [NSURL URLWithString:@"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg"];
     NSURL *svgURL2 = [NSURL URLWithString:@"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/wikimedia.svg"];
     NSURL *svgURL3 = [NSURL URLWithString:@"https://simpleicons.org/icons/github.svg"];
+    // Some SVG will fail, this demo check them and the C++/Objc exception should be catched by SDK
+    NSURL *badSVGURL = [NSURL URLWithString:@"https://openseauserdata.com/files/b809fe0925eb3629bb1d3edb1fafcc88.svg"];
+    [SDWebImageManager.sharedManager loadImageWithURL:badSVGURL options:0 progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+        
+    }];
     
     CGSize screenSize = self.view.bounds.size;
     
