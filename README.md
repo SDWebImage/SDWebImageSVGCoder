@@ -83,7 +83,7 @@ SDWebImageSVGCoder is available through [Swift Package Manager](https://swift.or
 ```swift
 let package = Package(
     dependencies: [
-        .package(url: "https://github.com/SDWebImage/SDWebImageSVGCoder.git", from: "1.4")
+        .package(url: "https://github.com/SDWebImage/SDWebImageSVGCoder.git", from: "1.4.0")
     ]
 )
 ```
